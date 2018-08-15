@@ -1,0 +1,188 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Data.Entity;
+using System.Globalization;
+
+namespace OrganizerBook.Pages
+{
+    /// <summary>
+    /// Логика взаимодействия для PageAddConsumption.xaml
+    /// </summary>
+    public partial class PageAddConsumption : Page
+    {
+        ApplicationContext db;
+        List<Consumption> consumptions;
+        bool initialize = false;
+        Consumption Consumption;
+
+        public PageAddConsumption()
+        {
+            InitializeComponent();
+
+            InitializeComponent();
+
+            consumptions = new List<Consumption>();
+
+            db = new ApplicationContext();
+            db.Consumptions.Load();
+            db.Types.Load();
+            db.SubTypes.Load();
+            db.Users.Load();
+
+            FillAddWindow();
+        }
+
+        private void FillAddWindow()
+        {
+            using (ApplicationContext db1 = new ApplicationContext())
+            {
+                db1.Users.Load();
+                db1.Types.Load();
+                db1.SubTypes.Load();
+
+                comboboxUserAddWindow.Items.Clear();
+                comboboxTypeAddWindow.Items.Clear();
+                comboboxSubTypeAddWindow.Items.Clear();
+
+                var queryUser = from u in db1.Users.Local
+                                select new
+                                {
+                                    userId = u.userId,
+                                    Name = u.Name,
+                                    Surname = u.Surname,
+                                    ShowName = u.Name + " " + u.Surname
+                                };
+                var queryType = from t in db1.Types.Local
+                                select new
+                                {
+                                    typeId = t.typeId,
+                                    typeName = t.TypeName
+                                };
+                var querySubOne = from s in db1.SubTypes.Local
+                                  where s.subTypeId == 1
+                                  select new
+                                  {
+                                      TypeId = s.TypeId,
+                                      subTypeId = s.subTypeId,
+                                      subTypeName = s.SubTypeName
+                                  };
+
+                var queryUserList = queryUser.ToList();
+                for (int i = 0; i < queryUserList.Count; i++)
+                {
+                    comboboxUserAddWindow.Items.Add(queryUserList[i]);
+                }
+
+                var queryTypeList = queryType.ToList();
+                for (int i = 0; i < queryTypeList.Count; i++)
+                {
+                    comboboxTypeAddWindow.Items.Add(queryTypeList[i]);
+                }
+
+                var querySubTypeList = querySubOne.ToList();
+                for (int i = 0; i < querySubTypeList.Count; i++)
+                {
+                    comboboxSubTypeAddWindow.Items.Add(querySubTypeList[i]);
+                }
+
+                comboboxSubTypeAddWindow.SelectedIndex = 0;
+                comboboxTypeAddWindow.SelectedIndex = 0;
+                comboboxUserAddWindow.SelectedIndex = 0;
+            }
+
+            DataContext = Consumption;
+            Consumption = new Consumption();
+            textboxAddDate.Text = DateTime.Now.ToLongDateString();
+            initialize = true;
+            comboboxSubTypeAddWindow.SelectedIndex = 0;
+            dynamic subtypeTemp = comboboxSubTypeAddWindow.SelectedItem;
+            Consumption.SubTypeId = subtypeTemp.subTypeId;
+        }
+
+        private void Accept_ClickAddWindow(object sender, RoutedEventArgs e)
+        {
+            Consumption.Description = textboxAddDescription.Text;
+            Consumption.Value = Int32.Parse(textboxAddValue.Text);
+            Consumption.Date = DateTime.Parse(textboxAddDate.Text);
+
+            dynamic usersTemp = comboboxUserAddWindow.SelectedItem;
+            if (comboboxUserAddWindow.SelectedIndex >= 0 && initialize)
+            {
+                Consumption.UserId = usersTemp.userId;
+            }
+
+            db.Consumptions.Add(Consumption);
+            db.SaveChanges();
+
+            textboxAddDate.Text = DateTime.Today.ToShortDateString();
+            textboxAddValue.Text = "0";
+            textboxAddDescription.Text = "";
+
+            comboboxTypeAddWindow.SelectedIndex = 0;
+            comboboxUserAddWindow.SelectedIndex = 0;
+
+            Consumption = new Consumption();
+
+            dynamic subtypeTemp = comboboxSubTypeAddWindow.SelectedItem;
+            Consumption.SubTypeId = subtypeTemp.subTypeId;
+
+        }
+
+        private void SelectedTypeAddWindow(object sender, SelectionChangedEventArgs e)
+        {
+            if (comboboxTypeAddWindow.SelectedIndex >= 0 && initialize)
+            {
+                comboboxSubTypeAddWindow.Items.Clear();
+
+                using (ApplicationContext db = new ApplicationContext())
+                {
+                    db.SubTypes.Load();
+
+                    dynamic typeTemp = comboboxTypeAddWindow.SelectedItem;
+                    var querySub = from s in db.SubTypes.Local
+                                   where s.TypeId == typeTemp.typeId
+                                   select new
+                                   {
+                                       typeId = s.TypeId,
+                                       subTypeId = s.subTypeId,
+                                       subTypeName = s.SubTypeName
+                                   };
+
+                    var querySubTypeList = querySub.ToList();
+                    for (int i = 0; i < querySubTypeList.Count; i++)
+                    {
+                        comboboxSubTypeAddWindow.Items.Add(querySubTypeList[i]);
+                    }
+
+                    comboboxSubTypeAddWindow.SelectedIndex = 0;
+
+                    dynamic subtypeTemp = comboboxSubTypeAddWindow.SelectedItem;
+                    Consumption.SubTypeId = subtypeTemp.subTypeId;
+                }
+            }
+        }
+
+        private void SelectedSubtypeAddWindow(object sender, SelectionChangedEventArgs e)
+        {
+            if (comboboxSubTypeAddWindow.SelectedIndex >= 0 && initialize)
+            {
+                dynamic subtypeTemp = comboboxSubTypeAddWindow.SelectedItem;
+                Consumption.SubTypeId = subtypeTemp.subTypeId;
+            }
+        }
+
+        private void comboboxUserAddWindow_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void textboxAddValue_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+    }
+}
