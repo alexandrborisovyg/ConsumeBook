@@ -14,13 +14,17 @@
     </Window.Resources>
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="331*"/>
+            <ColumnDefinition Width="165*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -28,14 +32,14 @@
 
             <Button x:Name="buttonFilter" Grid.Column="0" Height="Auto" Click="FilterClick"  materialDesign:ShadowAssist.ShadowDepth="Depth5" >Фильтр</Button>
             <Button x:Name="buttonAdd" Grid.Column="1" Height="Auto" Click="AddClick" materialDesign:ShadowAssist.ShadowDepth="Depth5" >Добавить</Button>
-           
+
         </Grid>
 
         <Grid Grid.Row="1" x:Name="gridCursor" HorizontalAlignment="Left">
-            
+
         </Grid>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
             <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
         </Grid>
 

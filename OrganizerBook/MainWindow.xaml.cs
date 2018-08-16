@@ -61,6 +61,7 @@ namespace OrganizerBook
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             gridCursor.Width = buttonFilter.ActualWidth;
+            
         }
     }
 }
