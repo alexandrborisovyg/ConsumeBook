@@ -10,6 +10,21 @@
       Title="PageAddConsumption">
 
     <Grid>
+        <Grid.Background>
+            <RadialGradientBrush>
+                <RadialGradientBrush.RelativeTransform>
+                    <TransformGroup>
+                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleY="100"/>
+                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                        <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </RadialGradientBrush.RelativeTransform>
+                <GradientStop Color="#FF9C27B0" Offset="0.462"/>
+                <GradientStop Color="White" Offset="0.525"/>
+                <GradientStop Color="#FF9C27B0" Offset="0.504"/>
+            </RadialGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="3*"/>
@@ -27,39 +42,56 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Сумма" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" />
-        <TextBlock Text="Тип\Подтип" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="2" Margin="3" FontFamily="Tahoma" FontSize="16"/>
-        <TextBlock Text="Описание" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" Grid.ColumnSpan="2"/>
-        <TextBlock Text="Дата" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16"/>
-        <TextBlock Text="Пользователь" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="2" Margin="3" FontFamily="Tahoma" FontSize="16"/>
+        <Grid Grid.Row="0" Grid.Column="1" Background="#FF9C27B0" />
+        <Grid Grid.Row="0" Grid.Column="2" Background="#FF9C27B0" />
+        <Grid Grid.Row="1" Grid.Column="1" Background="#FF9C27B0" />
+        <Grid Grid.Row="1" Grid.Column="2" Background="#FF9C27B0" />
+        <Grid Grid.Row="2" Grid.Column="1" Background="#FF9C27B0" />
+        <Grid Grid.Row="2" Grid.Column="2" Background="#FF9C27B0" />
+        <Grid Grid.Row="3" Grid.Column="1" Background="#FF9C27B0" />
+        <Grid Grid.Row="3" Grid.Column="2" Background="#FF9C27B0" />
+        <Grid Grid.Row="4" Grid.Column="1" Background="#FF9C27B0" />
+        <Grid Grid.Row="4" Grid.Column="2" Background="#FF9C27B0" />
+        <Grid Grid.Row="5" Grid.Column="1" Background="#FF9C27B0" />
+        <Grid Grid.Row="5" Grid.Column="2" Background="#FF9C27B0" />
+        <Grid Grid.Row="6" Grid.Column="1" Background="#FF9C27B0" />
+        <Grid Grid.Row="6" Grid.Column="2" Background="#FF9C27B0" />
+        <Grid Grid.Row="7" Grid.Column="1" Background="#FF9C27B0" />
+        <Grid Grid.Row="7" Grid.Column="2" Background="#FF9C27B0" />
+
+        <TextBlock Text="Сумма" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="White" />
+        <TextBlock Text="Тип\Подтип" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="2" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="White"/>
+        <TextBlock Text="Описание" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" Grid.ColumnSpan="2" Foreground="White"/>
+        <TextBlock Text="Дата" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="White"/>
+        <TextBlock Text="Пользователь" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="2" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="White"/>
 
 
-        <TextBox Name="textboxAddValue" Text="0" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalContentAlignment="Center" TextChanged="textboxAddValue_TextChanged" Margin="10"/>
+        <TextBox Name="textboxAddValue" Text="0" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalContentAlignment="Center" TextChanged="textboxAddValue_TextChanged" Margin="10" Foreground="White" KeyDown="textboxAddValue_textinput" BorderBrush="White"/>
         <ComboBox Name="comboboxTypeAddWindow" VerticalAlignment="Center" Margin="10"
                      DisplayMemberPath="typeName"
                      SelectedValuePath="default"
                      SelectedValue=""
-                     Grid.Column="2" Grid.Row="1" SelectionChanged="SelectedTypeAddWindow" />
+                     Grid.Column="2" Grid.Row="1" SelectionChanged="SelectedTypeAddWindow" Foreground="White" DropDownOpened="cbtype_open" DropDownClosed="cbtype_close" BorderBrush="White" />
 
         <ComboBox Name="comboboxSubTypeAddWindow" Margin="10"
                   DisplayMemberPath="subTypeName"
                   SelectedValuePath="default"
                   SelectedValue=""
-            Grid.Column="2" Grid.Row="2" SelectionChanged="SelectedSubtypeAddWindow" />
+            Grid.Column="2" Grid.Row="2" SelectionChanged="SelectedSubtypeAddWindow" Foreground="White" DropDownClosed="cbsubtype_close" DropDownOpened="cbsubtype_open" BorderBrush="White" />
 
-        <TextBox Name="textboxAddDescription" MaxLines="9" Text="" Grid.Column="1" Grid.Row="4" Margin="10" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" />
+        <TextBox Name="textboxAddDescription" MaxLines="9" Text="" Grid.Column="1" Grid.Row="4" Margin="10" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" Foreground="White" BorderBrush="#FCFFFFFF" />
         <DatePicker Name="textboxAddDate" Grid.Column="1" Grid.Row="6" Margin="10" Text="" VerticalAlignment="Center"
                         materialDesign:HintAssist.Hint="Введите дату"
-                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Foreground="White" BorderBrush="White" MouseEnter="textboxAddDate_mouseenter"/>
 
         <ComboBox Name="comboboxUserAddWindow" Margin="10" VerticalAlignment="Center"
                   DisplayMemberPath="ShowName"
                   SelectedValuePath="default"
                   SelectedValue=""
-            Grid.Column="2" Grid.Row="6" SelectionChanged="comboboxUserAddWindow_SelectionChanged"/>
+            Grid.Column="2" Grid.Row="6" SelectionChanged="comboboxUserAddWindow_SelectionChanged" Foreground="White" DropDownClosed="cbuser_close" DropDownOpened="cbuser_open" BorderBrush="White"/>
 
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
-            <Button IsDefault="True" Click="Accept_ClickAddWindow" MinWidth="150" Margin="5">OK</Button>
+            <Button IsDefault="True" Click="Accept_ClickAddWindow" MinWidth="150" Margin="5" Background="White" Foreground="#FF9C27B0" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="16,1,16,4">OK</Button>
         </StackPanel>
     </Grid>
 </Page>

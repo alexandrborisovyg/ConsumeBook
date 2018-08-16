@@ -194,5 +194,40 @@ namespace OrganizerBook
                 }
             }
         }
+
+        private void cbtype_open(object sender, EventArgs e)
+        {
+            comboboxType.Foreground = System.Windows.Media.Brushes.Black;
+        }
+
+        private void cbtype_close(object sender, EventArgs e)
+        {
+            comboboxType.Foreground = System.Windows.Media.Brushes.White;
+        }
+
+        private void cbsubtype_close(object sender, EventArgs e)
+        {
+            comboboxSubType.Foreground = System.Windows.Media.Brushes.White;
+        }
+
+        private void cbsubtype_open(object sender, EventArgs e)
+        {
+            comboboxSubType.Foreground = System.Windows.Media.Brushes.Black;
+        }
+
+        private void cbuser_close(object sender, EventArgs e)
+        {
+            comboboxUser.Foreground = System.Windows.Media.Brushes.White;
+        }
+
+        private void cbuser_open(object sender, EventArgs e)
+        {
+            comboboxUser.Foreground = System.Windows.Media.Brushes.Black;
+        }
+
+        private void Datepicker_mouseenter(object sender, MouseEventArgs e)
+        {
+            textboxDate.BorderBrush = System.Windows.Media.Brushes.White;
+        }
     }
 }

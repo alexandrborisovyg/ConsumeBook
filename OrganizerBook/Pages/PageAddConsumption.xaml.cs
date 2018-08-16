@@ -184,5 +184,46 @@ namespace OrganizerBook.Pages
         {
 
         }
+
+        private void cbtype_open(object sender, EventArgs e)
+        {
+            comboboxTypeAddWindow.Foreground = System.Windows.Media.Brushes.Black;
+        }
+
+        private void cbtype_close(object sender, EventArgs e)
+        {
+            comboboxTypeAddWindow.Foreground = System.Windows.Media.Brushes.White;
+        }
+
+        private void cbsubtype_close(object sender, EventArgs e)
+        {
+            comboboxSubTypeAddWindow.Foreground = System.Windows.Media.Brushes.White;
+        }
+
+        private void cbsubtype_open(object sender, EventArgs e)
+        {
+            comboboxSubTypeAddWindow.Foreground = System.Windows.Media.Brushes.Black;
+        }
+
+        private void cbuser_close(object sender, EventArgs e)
+        {
+            comboboxUserAddWindow.Foreground = System.Windows.Media.Brushes.White;
+        }
+
+        private void cbuser_open(object sender, EventArgs e)
+        {
+            comboboxUserAddWindow.Foreground = System.Windows.Media.Brushes.Black;
+        }
+
+        private void textboxAddValue_textinput(object sender, KeyEventArgs e)
+        {
+            if (textboxAddValue.Text == "0")
+                textboxAddValue.Text = "";
+        }
+
+        private void textboxAddDate_mouseenter(object sender, MouseEventArgs e)
+        {
+            textboxAddDate.BorderBrush = System.Windows.Media.Brushes.White;
+        }
     }
 }
