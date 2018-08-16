@@ -482,22 +482,36 @@ namespace OrganizerBook.Pages
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         {
+             
+            GridData.Width = GridData.ActualWidth;
             ButtonCloseMenu.Visibility = Visibility.Visible;
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
             AcceptFilter.Visibility = Visibility.Visible;
             DropFilter.Visibility = Visibility.Visible;
+            
+
+
 
 
         }
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
         {
+
+            
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
             ButtonOpenMenu.Visibility = Visibility.Visible;
             AcceptFilter.Visibility = Visibility.Collapsed;
             DropFilter.Visibility = Visibility.Collapsed;
+            GridData.Width = PageFilterMain.ActualWidth-70;
 
+        }
 
+        private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+
+            GridData.Width = e.NewSize.Width - 80;  
+          
         }
 
         private void textblockFromPeriod_CalendarOpened(object sender, RoutedEventArgs e)

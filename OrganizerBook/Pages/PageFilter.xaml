@@ -8,34 +8,31 @@
       xmlns:global="clr-namespace:OrganizerBook"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageFilter">
+      Title="PageFilter" SizeChanged="Page_SizeChanged">
 
     <Page.Resources>
         <global:BindingMainWindow x:Key="filtersElements"/>
         <Storyboard x:Key="OpenMenu">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="300"/>
-            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimation Storyboard.TargetProperty="(FrameworkElement.Width)"  Storyboard.TargetName="GridMenu"  By="230" Duration="0:0:0.5"/>
         </Storyboard>
         <Storyboard x:Key="CloseMenu">
+            <DoubleAnimation Storyboard.TargetProperty="(FrameworkElement.Width)"  Storyboard.TargetName="GridMenu"  By="-230" Duration="0:0:0.5"/>
+        </Storyboard>
+        <!--<Storyboard x:Key="CloseMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="300"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="70"/>
             </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
+        </Storyboard>-->
         <Storyboard x:Key="OpenMenu1">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridData">
-                <EasingDoubleKeyFrame KeyTime="0" Value="680"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="910"/>
-            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimation Storyboard.TargetProperty="(FrameworkElement.Width)"  Storyboard.TargetName="GridData"  By="230" Duration="0:0:0.5"/>
+           
         </Storyboard>
         <Storyboard x:Key="CloseMenu1">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridData">
-                <EasingDoubleKeyFrame KeyTime="0" Value="910"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="680"/>
-            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimation Storyboard.TargetProperty="(FrameworkElement.Width)"  Storyboard.TargetName="GridData"  By="-230" Duration="0:0:0.5"/>
         </Storyboard>
+
+        
     </Page.Resources>
 
     <Page.Triggers>
@@ -55,7 +52,7 @@
     </Page.Triggers>
 
 
-    <Grid>
+    <Grid x:Name="PageFilterMain">
         <Grid DataContext="{StaticResource filtersElements}" Background="WhiteSmoke">
 
 
