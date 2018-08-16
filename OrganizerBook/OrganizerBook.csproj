@@ -84,6 +84,15 @@
     <Compile Include="Pages\PageFilter.xaml.cs">
       <DependentUpon>PageFilter.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\settings\people.xaml.cs">
+      <DependentUpon>people.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\settings\subtype.xaml.cs">
+      <DependentUpon>subtype.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\settings\type.xaml.cs">
+      <DependentUpon>type.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
@@ -114,6 +123,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PageFilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\settings\people.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\settings\subtype.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\settings\type.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
