@@ -22,9 +22,6 @@ namespace OrganizerBook.Pages
         public PageAddConsumption()
         {
             InitializeComponent();
-
-            InitializeComponent();
-
             consumptions = new List<Consumption>();
 
             db = new ApplicationContext();
@@ -32,7 +29,6 @@ namespace OrganizerBook.Pages
             db.Types.Load();
             db.SubTypes.Load();
             db.Users.Load();
-
             FillAddWindow();
         }
 

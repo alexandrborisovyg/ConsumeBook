@@ -235,7 +235,7 @@ namespace OrganizerBook.Pages
                     }
                     sum = true;
 
-                    DropFilter_Click(null, null);
+                  //  DropFilter_Click(null, null);
                 }
             }
         }
@@ -439,7 +439,7 @@ namespace OrganizerBook.Pages
             db.SubTypes.Load();
             db.Users.Load();
             FillFilters();           
-            RefreshDataGrid();
+            RefreshDataGrid();           
 
         }
 
@@ -504,6 +504,8 @@ namespace OrganizerBook.Pages
             AcceptFilter.Visibility = Visibility.Collapsed;
             DropFilter.Visibility = Visibility.Collapsed;
             GridData.Width = PageFilterMain.ActualWidth-70;
+
+            
 
         }
 
