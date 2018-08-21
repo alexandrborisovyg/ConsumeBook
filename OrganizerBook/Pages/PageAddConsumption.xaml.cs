@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Data.Entity;
 using System.Globalization;
+using System.Windows.Media;
 
 namespace OrganizerBook.Pages
 {
@@ -187,32 +188,38 @@ namespace OrganizerBook.Pages
 
         private void cbtype_open(object sender, EventArgs e)
         {
-            comboboxTypeAddWindow.Foreground = System.Windows.Media.Brushes.Black;
+            comboboxTypeAddWindow.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
+            comboboxTypeAddWindow.Foreground = Brushes.WhiteSmoke;
         }
 
         private void cbtype_close(object sender, EventArgs e)
         {
-            comboboxTypeAddWindow.Foreground = System.Windows.Media.Brushes.White;
+            comboboxTypeAddWindow.Background = Brushes.WhiteSmoke;
+            comboboxTypeAddWindow.Foreground = Brushes.Black;
         }
 
         private void cbsubtype_close(object sender, EventArgs e)
         {
-            comboboxSubTypeAddWindow.Foreground = System.Windows.Media.Brushes.White;
+            comboboxSubTypeAddWindow.Background = Brushes.WhiteSmoke;
+            comboboxSubTypeAddWindow.Foreground = Brushes.Black;
         }
 
         private void cbsubtype_open(object sender, EventArgs e)
         {
-            comboboxSubTypeAddWindow.Foreground = System.Windows.Media.Brushes.Black;
+            comboboxSubTypeAddWindow.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
+            comboboxSubTypeAddWindow.Foreground = Brushes.WhiteSmoke;
         }
 
         private void cbuser_close(object sender, EventArgs e)
         {
-            comboboxUserAddWindow.Foreground = System.Windows.Media.Brushes.White;
+            comboboxUserAddWindow.Background = Brushes.WhiteSmoke;
+            comboboxUserAddWindow.Foreground = Brushes.Black;
         }
 
         private void cbuser_open(object sender, EventArgs e)
         {
-            comboboxUserAddWindow.Foreground = System.Windows.Media.Brushes.Black;
+            comboboxUserAddWindow.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
+            comboboxUserAddWindow.Foreground = Brushes.WhiteSmoke;
         }
 
         private void textboxAddValue_textinput(object sender, KeyEventArgs e)
@@ -223,7 +230,7 @@ namespace OrganizerBook.Pages
 
         private void textboxAddDate_mouseenter(object sender, MouseEventArgs e)
         {
-            textboxAddDate.BorderBrush = System.Windows.Media.Brushes.White;
+            textboxAddDate.BorderBrush = Brushes.Black;
         }
     }
 }
