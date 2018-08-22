@@ -440,6 +440,20 @@ namespace OrganizerBook.Pages
                 }
                 is_FilterActivated = true;
             }
+
+            var column = consumptionGrid.Columns[0];
+
+            consumptionGrid.Items.SortDescriptions.Clear();
+
+            consumptionGrid.Items.SortDescriptions.Add(new System.ComponentModel.SortDescription(column.SortMemberPath, System.ComponentModel.ListSortDirection.Ascending));
+
+            // Apply sort
+            foreach (var col in consumptionGrid.Columns)
+            {
+                col.SortDirection = null;
+            }
+            column.SortDirection = System.ComponentModel.ListSortDirection.Ascending;
+            consumptionGrid.Items.Refresh();
         }
 
         private void SettingsShow(object sender, RoutedEventArgs e)
@@ -511,6 +525,16 @@ namespace OrganizerBook.Pages
         private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             // GridData.Width = this.ActualWidth;
+        }
+
+        private void Datepicker_mouseenter_To(object sender, MouseEventArgs e)
+        {
+            textblockToPeriod.BorderBrush = System.Windows.Media.Brushes.Black;
+        }
+
+        private void Datepicker_mouseenter_From(object sender, MouseEventArgs e)
+        {
+            textblockFromPeriod.BorderBrush = System.Windows.Media.Brushes.Black;
         }
 
         private void textblockFromPeriod_CalendarOpened(object sender, RoutedEventArgs e)

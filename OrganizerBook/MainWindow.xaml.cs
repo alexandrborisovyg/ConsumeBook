@@ -47,7 +47,7 @@ namespace OrganizerBook
 
         private void AddClick(object sender, RoutedEventArgs e)
         {
-            pageAdd = new PageAddConsumption();
+            pageAdd = new PageAddConsumption(pageFilter);
             Main.Content = pageAdd;
            
             selectedTab = 1;

@@ -38,6 +38,7 @@ namespace OrganizerBook
             buttonPeople.Background = Brushes.White;
             buttonPeople.Foreground = Brushes.Black;
 
+            pagePeople.RefreshListBoxUser();
             Main.Content = pagePeople;
 
             gridCursor.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));

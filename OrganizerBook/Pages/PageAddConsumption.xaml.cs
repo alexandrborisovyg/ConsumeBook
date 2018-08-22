@@ -233,5 +233,10 @@ namespace OrganizerBook.Pages
         {
             textboxAddDate.BorderBrush = Brushes.Black;
         }
+
+        private void Datepicker_mouseenter(object sender, MouseEventArgs e)
+        {
+            textboxAddDate.BorderBrush = System.Windows.Media.Brushes.White;
+        }
     }
 }

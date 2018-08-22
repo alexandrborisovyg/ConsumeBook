@@ -237,5 +237,10 @@ namespace OrganizerBook
         {
             textBoxDate.BorderBrush = System.Windows.Media.Brushes.White;
         }
+
+        private void textboxAddValue_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
