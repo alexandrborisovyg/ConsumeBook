@@ -12,264 +12,247 @@
 
     <Page.Resources>
         <global:BindingMainWindow x:Key="filtersElements"/>
+        
         <Storyboard x:Key="OpenMenu">
-            <DoubleAnimation Storyboard.TargetProperty="(FrameworkElement.Width)"  Storyboard.TargetName="GridMenu"  By="230" Duration="0:0:0.5"/>
+            <DoubleAnimation Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu" By="230" Duration="0:0:0.5"/>
         </Storyboard>
         <Storyboard x:Key="CloseMenu">
-            <DoubleAnimation Storyboard.TargetProperty="(FrameworkElement.Width)"  Storyboard.TargetName="GridMenu"  By="-230" Duration="0:0:0.5"/>
+            <DoubleAnimation Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu" By="-230" Duration="0:0:0.5"/>
         </Storyboard>
-        <!--<Storyboard x:Key="CloseMenu">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="300"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="70"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>-->
         <Storyboard x:Key="OpenMenu1">
-            <DoubleAnimation Storyboard.TargetProperty="(FrameworkElement.Width)"  Storyboard.TargetName="GridData"  By="230" Duration="0:0:0.5"/>
-           
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="GridData" BeginTime="00:00:00">
+                <SplineThicknessKeyFrame KeyTime="00:00:00" Value="300, 0, 0, 0" />
+                <SplineThicknessKeyFrame KeyTime="00:00:0.5" Value="70, 0, 0,0" />
+            </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="CloseMenu1">
-            <DoubleAnimation Storyboard.TargetProperty="(FrameworkElement.Width)"  Storyboard.TargetName="GridData"  By="-230" Duration="0:0:0.5"/>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="GridData" BeginTime="00:00:00">
+                <SplineThicknessKeyFrame KeyTime="00:00:00" Value="70, 0, 0, 0" />
+                <SplineThicknessKeyFrame KeyTime="00:00:0.5" Value="300, 0, 0, 0" />
+            </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
-
-        
     </Page.Resources>
 
     <Page.Triggers>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
             <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
-            <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
-        </EventTrigger>
-
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
             <BeginStoryboard Storyboard="{StaticResource CloseMenu1}"/>
         </EventTrigger>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
             <BeginStoryboard Storyboard="{StaticResource OpenMenu1}"/>
         </EventTrigger>
     </Page.Triggers>
 
+    <Grid x:Name="PageFilterMain" DataContext="{StaticResource filtersElements}" Background="WhiteSmoke">
 
-    <Grid x:Name="PageFilterMain">
-        <Grid DataContext="{StaticResource filtersElements}" Background="WhiteSmoke">
+        <Grid x:Name="GridData" HorizontalAlignment="Right" Margin="70,0,0,0" Width="Auto">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
 
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.2*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="1.2*"/>
+                </Grid.ColumnDefinitions>
 
+                <Button Content="&lt;" FontSize="18" Foreground="White" FontWeight="Bold" Click="LeftDate_Click" Margin="5" materialDesign:ShadowAssist.ShadowDepth="Depth2" />
 
-
-            <Grid x:Name="GridData" HorizontalAlignment="Right" Margin="70,0,0,0">
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition />
-                    <RowDefinition Height="50" />
-                </Grid.RowDefinitions>
-
-                <Grid Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1.2*"/>
-                        <ColumnDefinition Width="4*"/>
-                        <ColumnDefinition Width="4*"/>
-                        <ColumnDefinition Width="4*"/>
-                        <ColumnDefinition Width="1.2*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Button Content="&lt;" FontSize="18" Foreground="White" FontWeight="Bold" Click="LeftDate_Click" Margin="5" materialDesign:ShadowAssist.ShadowDepth="Depth2" />
-
-                    <ComboBox Name="comboboxDay"
+                <ComboBox Name="comboboxDay"
                                   DisplayMemberPath="{Binding i}"
                                   SelectedValuePath="default"
                                   SelectedValue=""
                                   Grid.Column="1" Grid.Row="0" SelectionChanged="DayChanged" 
                                   Margin="5" FontFamily="Tahoma" FontSize="16" HorizontalContentAlignment="Center"/>
 
-                    <ComboBox Name="comboboxMonth"
+                <ComboBox Name="comboboxMonth"
                                   DisplayMemberPath="{Binding Month}"
                                   SelectedValuePath="default"
                                   SelectedValue=""
                                   Grid.Column="2" Grid.Row="0" SelectionChanged="MonthChanged" 
                                   Margin="5" FontFamily="Tahoma" FontSize="16" HorizontalContentAlignment="Center"/>
 
-                    <ComboBox Name="comboboxYear"
+                <ComboBox Name="comboboxYear"
                                   DisplayMemberPath="{Binding i}"
                                   SelectedValuePath="default"
                                   SelectedValue=""
                                   Grid.Column="3" Grid.Row="0" SelectionChanged="YearChanged"
                                   Margin="5" FontFamily="Tahoma" FontSize="16" HorizontalContentAlignment="Center"/>
 
-                    <Button Grid.Column="4" Foreground="White" FontSize="18" FontWeight="Bold" Content="&gt;" Click="RightClick" Margin="5" materialDesign:ShadowAssist.ShadowDepth="Depth2" />
-                </Grid>
-
-                <Grid Grid.Row="1">
-
-                    <DataGrid x:Name="consumptionGrid" AutoGenerateColumns="False" HorizontalGridLinesBrush="DarkGray"
-                    RowBackground="LightGray" AlternatingRowBackground="White" Grid.Row="1" Grid.Column="1" PreviewMouseDoubleClick="consumptionGrid_PreviewMouseDoubleClick" IsReadOnly="false" Background="#00000000" Margin="5">
-
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Дата" Binding="{Binding Path=ShowDate, Mode=OneWay}" Width="17*" />
-                            <DataGridTextColumn Header="Сумма" Binding="{Binding Path=ValueConsumption, Mode=OneWay}" Width="20*" />
-                            <DataGridTextColumn Header="Тип" Binding="{Binding Path=TypeName, Mode=OneWay}" Width="20*" />
-                            <DataGridTextColumn Header="Подтип" Binding="{Binding Path=SubTypeName, Mode=OneWay}" Width="20*" />
-                            <DataGridTextColumn Header="Человек" Binding="{Binding Path=UserName, Mode=OneWay}"  Width="23*" />
-                            <DataGridTextColumn Header="Описание" Binding="{Binding Path=DescriptionConsumption, Mode=OneWay}" Width="30*" />
-                        </DataGrid.Columns>
-
-                    </DataGrid>
-
-                </Grid>
-
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Foreground="White" ToolTip="Удалить выбраную трату" Height="Auto" Margin="11" Click="Delete_Click" materialDesign:ShadowAssist.ShadowDepth="Depth2" >
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Delete"  Height="20"  Width="20"  />
-                            <TextBlock Text="Удалить" Margin="3,1,0,0"   />
-                        </StackPanel>
-                    </Button>
-                    <!--<Button Content="Удалить" Click="Delete_Click" Margin="5" Grid.Column="0"/>-->
-                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Foreground="White" ToolTip="Настройки программы" Height="Auto" Margin="11" Grid.Column="1" Click="SettingsShow" materialDesign:ShadowAssist.ShadowDepth="Depth2" >
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Settings"  Height="20"  Width="20"  />
-                            <TextBlock Text="Настройки" Margin="3,1,0,0"   />
-                        </StackPanel>
-                    </Button>
-                </Grid>
-
+                <Button Grid.Column="4" Foreground="White" FontSize="18" FontWeight="Bold" Content="&gt;" Click="RightClick" Margin="5" materialDesign:ShadowAssist.ShadowDepth="Depth2" />
             </Grid>
 
-            <Grid x:Name="GridMenu" Width="70" HorizontalAlignment="Left" Background="#FF9C27B0">
-                <Grid.Effect>
-                    <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
-                </Grid.Effect>
-                <StackPanel>
-                    <Grid Height="60" Background="White" RenderTransformOrigin="0.5,0.5">
-                        <Grid.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Grid.RenderTransform>
-                        <Button x:Name="ButtonOpenMenu" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF9C27B0" Click="ButtonOpenMenu_Click">
-                            <materialDesign:PackIcon Kind="DatabaseSearch" Width="25" Height="25"/>
+            <Grid Grid.Row="1">
+
+                <DataGrid x:Name="consumptionGrid" AutoGenerateColumns="False" HorizontalGridLinesBrush="DarkGray"
+                    RowBackground="LightGray" AlternatingRowBackground="White" Grid.Row="1" Grid.Column="1" PreviewMouseDoubleClick="consumptionGrid_PreviewMouseDoubleClick" IsReadOnly="false" Background="#00000000" Margin="5">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Дата" Binding="{Binding Path=ShowDate, Mode=OneWay}" Width="17*" />
+                        <DataGridTextColumn Header="Сумма" Binding="{Binding Path=ValueConsumption, Mode=OneWay}" Width="20*" />
+                        <DataGridTextColumn Header="Тип" Binding="{Binding Path=TypeName, Mode=OneWay}" Width="20*" />
+                        <DataGridTextColumn Header="Подтип" Binding="{Binding Path=SubTypeName, Mode=OneWay}" Width="20*" />
+                        <DataGridTextColumn Header="Человек" Binding="{Binding Path=UserName, Mode=OneWay}"  Width="23*" />
+                        <DataGridTextColumn Header="Описание" Binding="{Binding Path=DescriptionConsumption, Mode=OneWay}" Width="30*" />
+                    </DataGrid.Columns>
+
+                </DataGrid>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Style="{StaticResource MaterialDesignRaisedButton}" Foreground="White" ToolTip="Удалить выбраную трату" Height="Auto" Margin="11" Click="Delete_Click" materialDesign:ShadowAssist.ShadowDepth="Depth2" >
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Delete"  Height="20"  Width="20"  />
+                        <TextBlock Text="Удалить" Margin="3,1,0,0"   />
+                    </StackPanel>
+                </Button>
+                <!--<Button Content="Удалить" Click="Delete_Click" Margin="5" Grid.Column="0"/>-->
+                <Button Style="{StaticResource MaterialDesignRaisedButton}" Foreground="White" ToolTip="Настройки программы" Height="Auto" Margin="11" Grid.Column="1" Click="SettingsShow" materialDesign:ShadowAssist.ShadowDepth="Depth2" >
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Settings"  Height="20"  Width="20"  />
+                        <TextBlock Text="Настройки" Margin="3,1,0,0"   />
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </Grid>
+
+        <Grid x:Name="GridMenu" Width="70" HorizontalAlignment="Left" Background="#FF9C27B0">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
+            </Grid.Effect>
+            <StackPanel>
+                <Grid Height="60" Background="White" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Button x:Name="ButtonOpenMenu" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF9C27B0" Click="ButtonOpenMenu_Click">
+                        <materialDesign:PackIcon Kind="DatabaseSearch" Width="25" Height="25"/>
+                    </Button>
+
+                    <Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF9C27B0" Click="ButtonCloseMenu_Click">
+                        <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
+                    </Button>
+                    <StackPanel Orientation="Horizontal" >
+                        <Button x:Name="AcceptFilter" Visibility="Collapsed" Height="60" Width="60" Margin="5,0,0,0" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF9C27B0" Click="AcceptFilter_Click">
+                            <materialDesign:PackIcon Kind="CheckCircle" Width="25" Height="25"/>
                         </Button>
-
-                        <Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF9C27B0" Click="ButtonCloseMenu_Click">
-                            <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
+                        <Button x:Name="DropFilter" Visibility="Collapsed" Height="60" Width="60" Margin="5,0,0,0" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF9C27B0" Click="DropFilter_Click">
+                            <materialDesign:PackIcon Kind="Refresh" Width="25" Height="25"/>
                         </Button>
-                        <StackPanel Orientation="Horizontal" >
-                            <Button x:Name="AcceptFilter" Visibility="Collapsed" Height="60" Width="60" Margin="5,0,0,0" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF9C27B0" Click="AcceptFilter_Click">
-                                <materialDesign:PackIcon Kind="CheckCircle" Width="25" Height="25"/>
-                            </Button>
-                            <Button x:Name="DropFilter" Visibility="Collapsed" Height="60" Width="60" Margin="5,0,0,0" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF9C27B0" Click="DropFilter_Click">
-                                <materialDesign:PackIcon Kind="Refresh" Width="25" Height="25"/>
-                            </Button>
-                        </StackPanel>
+                    </StackPanel>
 
-                    </Grid>
-                    <ListView x:Name="ListViewMenu" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                        <ListViewItem x:Name="ItemHome" Height="75">
-                            <Grid>
-                                <materialDesign:PackIcon Kind="CashMultiple" Height="45" Width="45" Margin="7,7,0,0"/>
-                                <StackPanel Orientation="Vertical" Margin="60,15,0,0">
-                                    <TextBlock Text="Итоговая сумма:" VerticalAlignment="Center"  FontWeight="Bold" Margin="0,0,0,0"/>
-                                    <TextBlock Text="{Binding Sum}" VerticalAlignment="Center"  FontWeight="Bold"  FontSize="25"  Margin="0,0,0,0"/>
+                </Grid>
+                <ListView x:Name="ListViewMenu" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListViewItem x:Name="ItemHome" Height="75">
+                        <Grid>
+                            <materialDesign:PackIcon Kind="CashMultiple" Height="45" Width="45" Margin="7,7,0,0"/>
+                            <StackPanel Orientation="Vertical" Margin="60,15,0,0">
+                                <TextBlock Text="Итоговая сумма:" VerticalAlignment="Center"  FontWeight="Bold" Margin="0,0,0,0"/>
+                                <TextBlock Text="{Binding Sum}" VerticalAlignment="Center"  FontWeight="Bold"  FontSize="25"  Margin="0,0,0,0"/>
+                            </StackPanel>
+                        </Grid>
+                    </ListViewItem>
+
+
+                    <ListViewItem x:Name="ItemCreate" Height="75">
+                        <Grid>
+                            <materialDesign:PackIcon Kind="KeyVariant" Height="45" Width="45" Margin="7,7,0,0"/>
+                            <StackPanel Orientation="Vertical" Margin="60,-5,0,0">
+                                <TextBlock Text="Ключевое слово:" VerticalAlignment="Center"  FontWeight="Bold" Margin="0 10"/>
+                                <TextBox Name="textboxKeyWord" Text="{Binding KeyWord}" HorizontalAlignment="Stretch" Width="213" Background="{x:Null}" Foreground="White"/>
+                            </StackPanel>
+                        </Grid>
+                    </ListViewItem>
+
+                    <ListViewItem x:Name="ItemCreate1" Height="75">
+                        <Grid>
+                            <materialDesign:PackIcon Kind="CurrencyRub" Height="45" Width="45" Margin="7,7,0,0"/>
+                            <StackPanel Orientation="Vertical" Margin="60,0,0,0">
+                                <TextBlock Text="Сумма"   VerticalAlignment="Center" FontWeight="Bold" />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="От:"  Margin="2,0,0,1"/>
+                                    <TextBlock Text="До:"  Margin="85,0,0,1"/>
                                 </StackPanel>
-                            </Grid>
-                        </ListViewItem>
+                                <StackPanel Orientation="Horizontal">
 
-
-                        <ListViewItem x:Name="ItemCreate" Height="75">
-                            <Grid>
-                                <materialDesign:PackIcon Kind="KeyVariant" Height="45" Width="45" Margin="7,7,0,0"/>
-                                <StackPanel Orientation="Vertical" Margin="60,-5,0,0">
-                                    <TextBlock Text="Ключевое слово:" VerticalAlignment="Center"  FontWeight="Bold" Margin="0 10"/>
-                                    <TextBox Name="textboxKeyWord" Text="{Binding KeyWord}" HorizontalAlignment="Stretch" Width="213" Background="{x:Null}" Foreground="White"/>
+                                    <TextBox Name="textblockFromValue" Text="{Binding FromValue}" Width="100" Background="{x:Null}" Foreground="White"  Margin="3,-3,3,0"/>
+                                    <TextBox Name="textblockToValue"   Text="{Binding ToValue}" Width="100" Background="{x:Null}" Foreground="White"    Margin="3,-3,3,0"/>
                                 </StackPanel>
-                            </Grid>
-                        </ListViewItem>
+                            </StackPanel>
+                        </Grid>
+                    </ListViewItem>
 
-                        <ListViewItem x:Name="ItemCreate1" Height="75">
-                            <Grid>
-                                <materialDesign:PackIcon Kind="CurrencyRub" Height="45" Width="45" Margin="7,7,0,0"/>
-                                <StackPanel Orientation="Vertical" Margin="60,0,0,0">
-                                    <TextBlock Text="Сумма"   VerticalAlignment="Center" FontWeight="Bold" />
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="От:"  Margin="2,0,0,1"/>
-                                        <TextBlock Text="До:"  Margin="85,0,0,1"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
+                    <ListViewItem x:Name="ItemData" Height="75">
+                        <Grid>
+                            <materialDesign:PackIcon Kind="CalendarClock" Height="45" Width="45" Margin="7,7,0,0"/>
+                            <StackPanel Orientation="Vertical" Margin="60,0,0,0">
+                                <TextBlock Text="Период"   VerticalAlignment="Center" FontWeight="Bold" />
 
-                                        <TextBox Name="textblockFromValue" Text="{Binding FromValue}" Width="100" Background="{x:Null}" Foreground="White"  Margin="3,-3,3,0"/>
-                                        <TextBox Name="textblockToValue"   Text="{Binding ToValue}" Width="100" Background="{x:Null}" Foreground="White"    Margin="3,-3,3,0"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Grid>
-                        </ListViewItem>
+                                <StackPanel Orientation="Horizontal">
 
-                        <ListViewItem x:Name="ItemData" Height="75">
-                            <Grid>
-                                <materialDesign:PackIcon Kind="CalendarClock" Height="45" Width="45" Margin="7,7,0,0"/>
-                                <StackPanel Orientation="Vertical" Margin="60,0,0,0">
-                                    <TextBlock Text="Период"   VerticalAlignment="Center" FontWeight="Bold" />
-
-                                    <StackPanel Orientation="Horizontal">
-
-                                        <DatePicker Name="textblockFromPeriod" FontWeight="Bold"  Background="#FF9C27B0" Foreground="White"
+                                    <DatePicker Name="textblockFromPeriod" FontWeight="Bold"  Background="#FF9C27B0" Foreground="White"
                                      Margin="3,0,3,0"
                                      materialDesign:HintAssist.Hint=" От"  Text="{Binding FromPeriod}" Width="100"  VerticalAlignment="Bottom"
                                      Style="{StaticResource MaterialDesignFloatingHintDatePicker}" CalendarOpened="textblockFromPeriod_CalendarOpened"   />
 
-                                        <DatePicker Name="textblockToPeriod" FontWeight="Bold"   Background="#FF9C27B0" Foreground="White"                                  
+                                    <DatePicker Name="textblockToPeriod" FontWeight="Bold"   Background="#FF9C27B0" Foreground="White"                                  
                                       Margin="3,0,3,0"
                                      materialDesign:HintAssist.Hint=" До" Text="{Binding FromPeriod}"  Width="100" VerticalAlignment="Bottom"
                                      Style="{StaticResource MaterialDesignFloatingHintDatePicker}" CalendarOpened="textblockFromPeriod_CalendarOpened"  />
-                                    </StackPanel>
                                 </StackPanel>
-                            </Grid>
-                        </ListViewItem>
+                            </StackPanel>
+                        </Grid>
+                    </ListViewItem>
 
-                        <ListViewItem x:Name="ItemType" Height="75">
-                            <Grid>
-                                <materialDesign:PackIcon Kind="EqualBox" Height="45" Width="45" Margin="7,7,0,0"/>
-                                <StackPanel Orientation="Vertical" Margin="60,0,0,0">
-                                    <TextBlock Text="Тип"   VerticalAlignment="Center" Margin="0,0,0,5" FontWeight="Bold" />
+                    <ListViewItem x:Name="ItemType" Height="75">
+                        <Grid>
+                            <materialDesign:PackIcon Kind="EqualBox" Height="45" Width="45" Margin="7,7,0,0"/>
+                            <StackPanel Orientation="Vertical" Margin="60,0,0,0">
+                                <TextBlock Text="Тип"   VerticalAlignment="Center" Margin="0,0,0,5" FontWeight="Bold" />
 
-                                    <StackPanel Orientation="Horizontal">
-                                        <ComboBox Name="comboboxType" Width="100" Margin="3,-3,3,0"  Background="#FF9C27B0" Foreground="White"
+                                <StackPanel Orientation="Horizontal">
+                                    <ComboBox Name="comboboxType" Width="100" Margin="3,-3,3,0"  Background="#FF9C27B0" Foreground="White"
                   DisplayMemberPath="typeName"
                   SelectedValuePath="default"
                   SelectedValue="" SelectionChanged="typeChanged"/>
 
-                                        <ComboBox Name="comboboxSubType" Width="100" Margin="3,-3,3,0"  Background="#FF9C27B0" Foreground="White"
+                                    <ComboBox Name="comboboxSubType" Width="100" Margin="3,-3,3,0"  Background="#FF9C27B0" Foreground="White"
                   DisplayMemberPath="subTypeName"
                   SelectedValuePath="default"
                   SelectedValue="" />
 
-                                    </StackPanel>
                                 </StackPanel>
-                            </Grid>
-                        </ListViewItem>
-                        <ListViewItem x:Name="ItemUser" Height="60">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Account" Height="45" Width="45" Margin="7,7,0,0"/>
-                                <ComboBox Name="comboboxUser" Background="#FF9C27B0" Foreground="White"  Width="213" Margin="10,15,3,0"
+                            </StackPanel>
+                        </Grid>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemUser" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Account" Height="45" Width="45" Margin="7,7,0,0"/>
+                            <ComboBox Name="comboboxUser" Background="#FF9C27B0" Foreground="White"  Width="213" Margin="10,15,3,0"
                                          DisplayMemberPath="ShowName"
                                          SelectedValuePath="default"
                                          SelectedValue=""/>
 
-                            </StackPanel>
-                        </ListViewItem>
-                    </ListView>
-                </StackPanel>
-            </Grid>
-
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

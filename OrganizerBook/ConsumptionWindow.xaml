@@ -78,7 +78,7 @@
                   Grid.Column="2" Grid.Row="2" SelectionChanged="SelectedSubtype" Foreground="White" DropDownClosed="cbsubtype_close" DropDownOpened="cbsubtype_open" BorderBrush="White" />
 
         <TextBox Name="textboxDescription" MaxLines="9" Text="{Binding Description}" Grid.Column="1" Grid.Row="4" Margin="10" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" Foreground="White" BorderBrush="White" Background="Transparent" />
-        <DatePicker Name="textboxDate" Grid.Column="1" Grid.Row="6" Margin="10" Text="{Binding Date}" VerticalAlignment="Center"
+        <DatePicker Name="textBoxDate" Grid.Column="1" Grid.Row="6" Margin="10" Text="{Binding Date}" VerticalAlignment="Center"
                         materialDesign:HintAssist.Hint="Введите дату"
                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Foreground="White" BorderBrush="White" MouseEnter="Datepicker_mouseenter"/>
 

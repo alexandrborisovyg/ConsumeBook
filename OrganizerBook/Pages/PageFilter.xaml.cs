@@ -39,12 +39,11 @@ namespace OrganizerBook.Pages
 
             SetDate();
             SetSelectedIndice();
+            comboboxDay.SelectedIndex = 0;
 
             RefreshDataGrid();
-          
         }
 
-       
         private void FillFilters()
         {
             comboboxSubType.Items.Clear();
@@ -114,7 +113,7 @@ namespace OrganizerBook.Pages
             comboboxUser.SelectedIndex = 0;
         }
 
-        private void RefreshDataGrid()
+        public void RefreshDataGrid()
         {
             using (ApplicationContext db1 = new ApplicationContext())
             {
@@ -223,6 +222,19 @@ namespace OrganizerBook.Pages
                     consumptionGrid.ItemsSource = listResult;
                 }
 
+                var column = consumptionGrid.Columns[0];
+
+                consumptionGrid.Items.SortDescriptions.Clear();
+
+                consumptionGrid.Items.SortDescriptions.Add(new System.ComponentModel.SortDescription(column.SortMemberPath, System.ComponentModel.ListSortDirection.Ascending));
+
+                // Apply sort
+                foreach (var col in consumptionGrid.Columns)
+                {
+                    col.SortDirection = null;
+                }
+                column.SortDirection = System.ComponentModel.ListSortDirection.Ascending;
+                consumptionGrid.Items.Refresh();
 
                 if (!sum)
                 {
@@ -482,36 +494,23 @@ namespace OrganizerBook.Pages
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         {
-             
-            GridData.Width = GridData.ActualWidth;
             ButtonCloseMenu.Visibility = Visibility.Visible;
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
             AcceptFilter.Visibility = Visibility.Visible;
             DropFilter.Visibility = Visibility.Visible;
-            
-
-
-
-
         }
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
         {
-
-            
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
             ButtonOpenMenu.Visibility = Visibility.Visible;
             AcceptFilter.Visibility = Visibility.Collapsed;
             DropFilter.Visibility = Visibility.Collapsed;
-            GridData.Width = PageFilterMain.ActualWidth-70;
-
         }
 
         private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-
-            GridData.Width = e.NewSize.Width - 80;  
-          
+            // GridData.Width = this.ActualWidth;
         }
 
         private void textblockFromPeriod_CalendarOpened(object sender, RoutedEventArgs e)
@@ -520,7 +519,6 @@ namespace OrganizerBook.Pages
             {
                 textblockFromPeriod.Text = DateTime.Today.ToShortDateString();
                 textblockToPeriod.Text = DateTime.Today.ToShortDateString();
-             
             }
         }
 

@@ -133,6 +133,7 @@ namespace OrganizerBook
                     }
                 }
             }
+            this.textBoxDate.Text = Consumption.Date.ToShortDateString();
             this.DataContext = Consumption;
 
             initialize = true;
@@ -140,6 +141,7 @@ namespace OrganizerBook
 
         private void Accept_Click(object sender, RoutedEventArgs e)
         {
+            Consumption.Date = DateTime.Parse(this.textBoxDate.Text);
             this.DialogResult = true;
         }
 
@@ -227,7 +229,7 @@ namespace OrganizerBook
 
         private void Datepicker_mouseenter(object sender, MouseEventArgs e)
         {
-            textboxDate.BorderBrush = System.Windows.Media.Brushes.White;
+            textBoxDate.BorderBrush = System.Windows.Media.Brushes.White;
         }
     }
 }
