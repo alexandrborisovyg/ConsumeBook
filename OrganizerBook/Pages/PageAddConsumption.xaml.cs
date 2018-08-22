@@ -15,14 +15,18 @@ namespace OrganizerBook.Pages
     /// </summary>
     public partial class PageAddConsumption : Page
     {
+        PageFilter filterWindow;
         ApplicationContext db;
         List<Consumption> consumptions;
         bool initialize = false;
         Consumption Consumption;
 
-        public PageAddConsumption()
+        public PageAddConsumption(PageFilter filterWindow)
         {
             InitializeComponent();
+
+            this.filterWindow = filterWindow;
+
             consumptions = new List<Consumption>();
 
             db = new ApplicationContext();
@@ -127,6 +131,7 @@ namespace OrganizerBook.Pages
             dynamic subtypeTemp = comboboxSubTypeAddWindow.SelectedItem;
             Consumption.SubTypeId = subtypeTemp.subTypeId;
 
+            filterWindow.RefreshDataGrid();
         }
 
         private void SelectedTypeAddWindow(object sender, SelectionChangedEventArgs e)
