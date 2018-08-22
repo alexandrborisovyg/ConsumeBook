@@ -7,22 +7,7 @@
         xmlns:local="clr-namespace:OrganizerBook"
         mc:Ignorable="d"
         Title="ConsumptionWindow" Height="500" Width="850">
-    <Grid>
-        <Grid.Background>
-            <RadialGradientBrush>
-                <RadialGradientBrush.RelativeTransform>
-                    <TransformGroup>
-                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleY="100"/>
-                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                        <RotateTransform CenterY="0.5" CenterX="0.5"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </RadialGradientBrush.RelativeTransform>
-                <GradientStop Color="#FF9C27B0" Offset="0.462"/>
-                <GradientStop Color="White" Offset="0.525"/>
-                <GradientStop Color="#FF9C27B0" Offset="0.504"/>
-            </RadialGradientBrush>
-        </Grid.Background>
+    <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="3*"/>
@@ -40,56 +25,56 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="1" Background="#FF9C27B0" />
-        <Grid Grid.Row="0" Grid.Column="2" Background="#FF9C27B0" />
-        <Grid Grid.Row="1" Grid.Column="1" Background="#FF9C27B0" />
-        <Grid Grid.Row="1" Grid.Column="2" Background="#FF9C27B0" />
-        <Grid Grid.Row="2" Grid.Column="1" Background="#FF9C27B0" />
-        <Grid Grid.Row="2" Grid.Column="2" Background="#FF9C27B0" />
-        <Grid Grid.Row="3" Grid.Column="1" Background="#FF9C27B0" />
-        <Grid Grid.Row="3" Grid.Column="2" Background="#FF9C27B0" />
-        <Grid Grid.Row="4" Grid.Column="1" Background="#FF9C27B0" />
-        <Grid Grid.Row="4" Grid.Column="2" Background="#FF9C27B0" />
-        <Grid Grid.Row="5" Grid.Column="1" Background="#FF9C27B0" />
-        <Grid Grid.Row="5" Grid.Column="2" Background="#FF9C27B0" />
-        <Grid Grid.Row="6" Grid.Column="1" Background="#FF9C27B0" />
-        <Grid Grid.Row="6" Grid.Column="2" Background="#FF9C27B0" />
-        <Grid Grid.Row="7" Grid.Column="1" Background="#FF9C27B0" />
-        <Grid Grid.Row="7" Grid.Column="2" Background="#FF9C27B0" />
+        <Grid Grid.Row="0" Grid.Column="1" Background="WhiteSmoke" />
+        <Grid Grid.Row="0" Grid.Column="2" Background="WhiteSmoke" />
+        <Grid Grid.Row="1" Grid.Column="1" Background="WhiteSmoke" />
+        <Grid Grid.Row="1" Grid.Column="2" Background="WhiteSmoke" />
+        <Grid Grid.Row="2" Grid.Column="1" Background="WhiteSmoke" />
+        <Grid Grid.Row="2" Grid.Column="2" Background="WhiteSmoke" />
+        <Grid Grid.Row="3" Grid.Column="1" Background="WhiteSmoke" />
+        <Grid Grid.Row="3" Grid.Column="2" Background="WhiteSmoke" />
+        <Grid Grid.Row="4" Grid.Column="1" Background="WhiteSmoke" />
+        <Grid Grid.Row="4" Grid.Column="2" Background="WhiteSmoke" />
+        <Grid Grid.Row="5" Grid.Column="1" Background="WhiteSmoke" />
+        <Grid Grid.Row="5" Grid.Column="2" Background="WhiteSmoke" />
+        <Grid Grid.Row="6" Grid.Column="1" Background="WhiteSmoke" />
+        <Grid Grid.Row="6" Grid.Column="2" Background="WhiteSmoke" />
+        <Grid Grid.Row="7" Grid.Column="1" Background="WhiteSmoke" />
+        <Grid Grid.Row="7" Grid.Column="2" Background="WhiteSmoke" />
 
-        <TextBlock Text="Сумма" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="White" />
-        <TextBlock Text="Тип\Подтип" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="2" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="White"/>
-        <TextBlock Text="Описание" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" Grid.ColumnSpan="2" Foreground="White"/>
-        <TextBlock Text="Дата" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="White"/>
-        <TextBlock Text="Пользователь" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="2" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="White"/>
+        <TextBlock Text="Сумма" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="Black" />
+        <TextBlock Text="Тип\Подтип" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="2" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="Black"/>
+        <TextBlock Text="Описание" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" Grid.ColumnSpan="2" Foreground="Black"/>
+        <TextBlock Text="Дата" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="Black"/>
+        <TextBlock Text="Пользователь" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="2" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="Black"/>
 
 
-        <TextBox Name="textboxValue" Text="{Binding Value}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalContentAlignment="Center" Margin="10" Foreground="White" CaretBrush="#FF9C27B0" Background="#00000000" BorderBrush="White"/>
+        <TextBox Name="textboxValue" Text="{Binding Value}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalContentAlignment="Center" Margin="10" Foreground="White" CaretBrush="Black" Background="#00000000" BorderBrush="Black"/>
         <ComboBox Name="comboboxType" VerticalAlignment="Center" Margin="10"
                      DisplayMemberPath="typeName"
                      SelectedValuePath="default"
                      SelectedValue=""
-                     Grid.Column="2" Grid.Row="1" SelectionChanged="SelectedType" Foreground="White" DropDownOpened="cbtype_open" DropDownClosed="cbtype_close" BorderBrush="White" />
+                     Grid.Column="2" Grid.Row="1" SelectionChanged="SelectedType" Foreground="Black" DropDownOpened="cbtype_open" DropDownClosed="cbtype_close" BorderBrush="Black" />
 
         <ComboBox Name="comboboxSubType" Margin="10"
                   DisplayMemberPath="subTypeName"
                   SelectedValuePath="default"
                   SelectedValue=""
-                  Grid.Column="2" Grid.Row="2" SelectionChanged="SelectedSubtype" Foreground="White" DropDownClosed="cbsubtype_close" DropDownOpened="cbsubtype_open" BorderBrush="White" />
+                  Grid.Column="2" Grid.Row="2" SelectionChanged="SelectedSubtype" Foreground="Black" DropDownClosed="cbsubtype_close" DropDownOpened="cbsubtype_open" BorderBrush="Black" />
 
         <TextBox Name="textboxDescription" MaxLines="9" Text="{Binding Description}" Grid.Column="1" Grid.Row="4" Margin="10" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" Foreground="White" BorderBrush="White" Background="Transparent" />
         <DatePicker Name="textBoxDate" Grid.Column="1" Grid.Row="6" Margin="10" Text="{Binding Date}" VerticalAlignment="Center"
                         materialDesign:HintAssist.Hint="Введите дату"
-                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Foreground="White" BorderBrush="White" MouseEnter="Datepicker_mouseenter"/>
+                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Foreground="Black" BorderBrush="Black" MouseEnter="Datepicker_mouseenter"/>
 
         <ComboBox Name="comboboxUser" Margin="10" VerticalAlignment="Center"
                   DisplayMemberPath="ShowName"
                   SelectedValuePath="default"
                   SelectedValue=""
-            Grid.Column="2" Grid.Row="6" SelectionChanged="SelectedUser" Foreground="White" DropDownClosed="cbuser_close" DropDownOpened="cbuser_open" BorderBrush="White"/>
+            Grid.Column="2" Grid.Row="6" SelectionChanged="SelectedUser" Foreground="Black" DropDownClosed="cbuser_close" DropDownOpened="cbuser_open" BorderBrush="Black"/>
 
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
-            <Button IsDefault="True" Click="Accept_Click" MinWidth="150" Margin="5" Background="White" Foreground="#FF9C27B0" FontSize="20" Padding="16,1,16,4">Изменить</Button>
+            <Button IsDefault="True" Click="Accept_Click" MinWidth="150" Margin="5" Background="#FF9C27B0" Foreground="WhiteSmoke" FontSize="20" Padding="16,1,16,4">Изменить</Button>
         </StackPanel>
     </Grid>
 </Window>

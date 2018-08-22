@@ -157,42 +157,43 @@
                         </Button>
                     </StackPanel>
 
-                </Grid>
-                <ListView x:Name="ListViewMenu" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListViewItem x:Name="ItemHome" Height="75">
-                        <Grid>
-                            <materialDesign:PackIcon Kind="CashMultiple" Height="45" Width="45" Margin="7,7,0,0"/>
-                            <StackPanel Orientation="Vertical" Margin="60,15,0,0">
-                                <TextBlock Text="Итоговая сумма:" VerticalAlignment="Center"  FontWeight="Bold" Margin="0,0,0,0"/>
-                                <TextBlock Text="{Binding Sum}" VerticalAlignment="Center"  FontWeight="Bold"  FontSize="25"  Margin="0,0,0,0"/>
-                            </StackPanel>
-                        </Grid>
-                    </ListViewItem>
-
-
-                    <ListViewItem x:Name="ItemCreate" Height="75">
-                        <Grid>
-                            <materialDesign:PackIcon Kind="KeyVariant" Height="45" Width="45" Margin="7,7,0,0"/>
-                            <StackPanel Orientation="Vertical" Margin="60,-5,0,0">
-                                <TextBlock Text="Ключевое слово:" VerticalAlignment="Center"  FontWeight="Bold" Margin="0 10"/>
-                                <TextBox Name="textboxKeyWord" Text="{Binding KeyWord}" HorizontalAlignment="Stretch" Width="213" Background="{x:Null}" Foreground="White"/>
-                            </StackPanel>
-                        </Grid>
-                    </ListViewItem>
-
-                    <ListViewItem x:Name="ItemCreate1" Height="75">
-                        <Grid>
-                            <materialDesign:PackIcon Kind="CurrencyRub" Height="45" Width="45" Margin="7,7,0,0"/>
-                            <StackPanel Orientation="Vertical" Margin="60,0,0,0">
-                                <TextBlock Text="Сумма"   VerticalAlignment="Center" FontWeight="Bold" />
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="От:"  Margin="2,0,0,1"/>
-                                    <TextBlock Text="До:"  Margin="85,0,0,1"/>
+                    </Grid>
+                    <ListView x:Name="ListViewMenu"  Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListViewItem x:Name="ItemHome" Height="75">
+                            <Grid>
+                                <materialDesign:PackIcon Kind="CashMultiple" Height="45" Width="45" Margin="7,7,0,0"/>
+                                <StackPanel Orientation="Vertical" Margin="60,15,0,0">
+                                    <TextBlock Text="Итоговая сумма:" VerticalAlignment="Center"  FontWeight="Bold" Margin="0,0,0,0"/>
+                                    <TextBlock Text="{Binding Sum}" VerticalAlignment="Center"  FontWeight="Bold"  FontSize="25"  Margin="0,0,0,0"/>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal">
+                            </Grid>
+                        </ListViewItem>
 
-                                    <TextBox Name="textblockFromValue" Text="{Binding FromValue}" Width="100" Background="{x:Null}" Foreground="White"  Margin="3,-3,3,0"/>
-                                    <TextBox Name="textblockToValue"   Text="{Binding ToValue}" Width="100" Background="{x:Null}" Foreground="White"    Margin="3,-3,3,0"/>
+
+                        <ListViewItem x:Name="ItemCreate" Height="75">
+                            <Grid>
+                                <materialDesign:PackIcon Kind="KeyVariant" Height="45" Width="45" Margin="7,7,0,0"/>
+                                <StackPanel Orientation="Vertical" Margin="60,-5,0,0" >
+                                    <TextBlock Text="Ключевое слово:" VerticalAlignment="Center"  FontWeight="Bold" Margin="0 10" />
+                                    <TextBox Name="textboxKeyWord" Text="{Binding KeyWord}" HorizontalAlignment="Stretch" Width="213" Background="{x:Null}" Foreground="White" BorderBrush="White"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListViewItem>
+
+                        <ListViewItem x:Name="ItemCreate1" Height="75">
+                            <Grid>
+                                <materialDesign:PackIcon Kind="CurrencyRub" Height="45" Width="45" Margin="7,7,0,0"/>
+                                <StackPanel Orientation="Vertical" Margin="60,0,0,0">
+                                    <TextBlock Text="Сумма"   VerticalAlignment="Center" FontWeight="Bold" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="От:"  Margin="2,0,0,1" />
+                                        <TextBlock Text="До:"  Margin="85,0,0,1"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <TextBox Name="textblockFromValue" Text="{Binding FromValue}" Width="100" Background="{x:Null}" Foreground="White"  Margin="3,-3,3,0"  BorderBrush="White"/>
+                                        <TextBox Name="textblockToValue"   Text="{Binding ToValue}" Width="100" Background="{x:Null}" Foreground="White"    Margin="3,-3,3,0"  BorderBrush="White"/>
+                                    </StackPanel>
                                 </StackPanel>
                             </StackPanel>
                         </Grid>
@@ -206,12 +207,12 @@
 
                                 <StackPanel Orientation="Horizontal">
 
-                                    <DatePicker Name="textblockFromPeriod" FontWeight="Bold"  Background="#FF9C27B0" Foreground="White"
+                                        <DatePicker Name="textblockFromPeriod" FontWeight="Bold"  Background="{x:Null}"   BorderBrush="White"
                                      Margin="3,0,3,0"
                                      materialDesign:HintAssist.Hint=" От"  Text="{Binding FromPeriod}" Width="100"  VerticalAlignment="Bottom"
                                      Style="{StaticResource MaterialDesignFloatingHintDatePicker}" CalendarOpened="textblockFromPeriod_CalendarOpened"   />
 
-                                    <DatePicker Name="textblockToPeriod" FontWeight="Bold"   Background="#FF9C27B0" Foreground="White"                                  
+                                        <DatePicker Name="textblockToPeriod" FontWeight="Bold"   Background="{x:Null}"   BorderBrush="White"                                 
                                       Margin="3,0,3,0"
                                      materialDesign:HintAssist.Hint=" До" Text="{Binding FromPeriod}"  Width="100" VerticalAlignment="Bottom"
                                      Style="{StaticResource MaterialDesignFloatingHintDatePicker}" CalendarOpened="textblockFromPeriod_CalendarOpened"  />
@@ -226,25 +227,24 @@
                             <StackPanel Orientation="Vertical" Margin="60,0,0,0">
                                 <TextBlock Text="Тип"   VerticalAlignment="Center" Margin="0,0,0,5" FontWeight="Bold" />
 
-                                <StackPanel Orientation="Horizontal">
-                                    <ComboBox Name="comboboxType" Width="100" Margin="3,-3,3,0"  Background="#FF9C27B0" Foreground="White"
+                                    <StackPanel Orientation="Horizontal">
+                                        <ComboBox Name="comboboxType" Width="100" Margin="3,-3,3,0"  Background="#FF9C27B0" Foreground="White"  BorderBrush="White"
                   DisplayMemberPath="typeName"
                   SelectedValuePath="default"
                   SelectedValue="" SelectionChanged="typeChanged"/>
 
-                                    <ComboBox Name="comboboxSubType" Width="100" Margin="3,-3,3,0"  Background="#FF9C27B0" Foreground="White"
+                                        <ComboBox Name="comboboxSubType" Width="100" Margin="3,-3,3,0"  Background="#FF9C27B0" Foreground="White"  BorderBrush="White"
                   DisplayMemberPath="subTypeName"
                   SelectedValuePath="default"
                   SelectedValue="" />
 
                                 </StackPanel>
-                            </StackPanel>
-                        </Grid>
-                    </ListViewItem>
-                    <ListViewItem x:Name="ItemUser" Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Account" Height="45" Width="45" Margin="7,7,0,0"/>
-                            <ComboBox Name="comboboxUser" Background="#FF9C27B0" Foreground="White"  Width="213" Margin="10,15,3,0"
+                            </Grid>
+                        </ListViewItem>
+                        <ListViewItem x:Name="ItemUser" Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Account" Height="45" Width="45" Margin="7,7,0,0"/>
+                                <ComboBox Name="comboboxUser" Background="#FF9C27B0" Foreground="White"  Width="213" Margin="10,15,3,0"  BorderBrush="White"
                                          DisplayMemberPath="ShowName"
                                          SelectedValuePath="default"
                                          SelectedValue=""/>

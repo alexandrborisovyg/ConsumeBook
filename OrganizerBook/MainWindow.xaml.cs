@@ -47,8 +47,9 @@ namespace OrganizerBook
 
         private void AddClick(object sender, RoutedEventArgs e)
         {
+            pageAdd = new PageAddConsumption();
             Main.Content = pageAdd;
-
+           
             selectedTab = 1;
             gridCursor.Margin = new Thickness((gridCursor.Width * selectedTab), 0, 0, 0);
 

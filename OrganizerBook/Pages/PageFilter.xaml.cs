@@ -247,7 +247,7 @@ namespace OrganizerBook.Pages
                     }
                     sum = true;
 
-                    DropFilter_Click(null, null);
+                  //  DropFilter_Click(null, null);
                 }
             }
         }
@@ -451,7 +451,7 @@ namespace OrganizerBook.Pages
             db.SubTypes.Load();
             db.Users.Load();
             FillFilters();           
-            RefreshDataGrid();
+            RefreshDataGrid();           
 
         }
 
