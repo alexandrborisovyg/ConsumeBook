@@ -197,37 +197,43 @@ namespace OrganizerBook
 
         private void cbtype_open(object sender, EventArgs e)
         {
-            comboboxType.Foreground = System.Windows.Media.Brushes.Black;
+            comboboxType.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
+            comboboxType.Foreground = Brushes.WhiteSmoke;
         }
 
         private void cbtype_close(object sender, EventArgs e)
         {
-            comboboxType.Foreground = System.Windows.Media.Brushes.White;
+            comboboxType.Background = Brushes.WhiteSmoke;
+            comboboxType.Foreground = Brushes.Black;
         }
 
         private void cbsubtype_close(object sender, EventArgs e)
         {
-            comboboxSubType.Foreground = System.Windows.Media.Brushes.White;
+            comboboxSubType.Background = Brushes.WhiteSmoke;
+            comboboxSubType.Foreground = Brushes.Black;
         }
 
         private void cbsubtype_open(object sender, EventArgs e)
         {
-            comboboxSubType.Foreground = System.Windows.Media.Brushes.Black;
+            comboboxSubType.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
+            comboboxSubType.Foreground = Brushes.WhiteSmoke;
         }
 
         private void cbuser_close(object sender, EventArgs e)
         {
-            comboboxUser.Foreground = System.Windows.Media.Brushes.White;
+            comboboxUser.Background = Brushes.WhiteSmoke;
+            comboboxUser.Foreground = Brushes.Black;
         }
 
         private void cbuser_open(object sender, EventArgs e)
         {
-            comboboxUser.Foreground = System.Windows.Media.Brushes.Black;
+            comboboxUser.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
+            comboboxUser.Foreground = Brushes.WhiteSmoke;
         }
 
         private void Datepicker_mouseenter(object sender, MouseEventArgs e)
         {
-            textboxDate.BorderBrush = System.Windows.Media.Brushes.White;
+            textboxDate.BorderBrush = Brushes.Black;
         }
     }
 }
