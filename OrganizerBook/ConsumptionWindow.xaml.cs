@@ -233,9 +233,9 @@ namespace OrganizerBook
             comboboxUser.Foreground = Brushes.WhiteSmoke;
         }
 
-        private void textboxAddValue_TextChanged(object sender, TextChangedEventArgs e)
+        private void Datepicker_mouseenter(object sender, MouseEventArgs e)
         {
-
+            textBoxDate.BorderBrush = Brushes.Black;
         }
     }
 }
