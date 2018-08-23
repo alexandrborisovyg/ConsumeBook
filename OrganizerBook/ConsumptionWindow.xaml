@@ -64,7 +64,7 @@
         <TextBox Name="textboxAddDescription" MaxLines="9" Text="{Binding Description}" Grid.Column="1" Grid.Row="4" Margin="10" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" Foreground="Black" BorderBrush="#FC000000" TextChanged="textboxAddValue_TextChanged" />
         <DatePicker Name="textBoxDate" Grid.Column="1" Grid.Row="6" Margin="10" Text="{Binding Date}" VerticalAlignment="Center"
                         materialDesign:HintAssist.Hint="Введите дату"
-                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Foreground="Black" BorderBrush="Black" MouseEnter="Datepicker_mouseenter"/>
+                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Foreground="Black" BorderBrush="Black" />
 
         <ComboBox Name="comboboxUser" Margin="10" VerticalAlignment="Center"
                   DisplayMemberPath="ShowName"

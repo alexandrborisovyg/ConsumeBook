@@ -204,20 +204,17 @@
                                 <StackPanel Orientation="Vertical" Margin="60,0,0,0">
                                     <TextBlock Text="Период"   VerticalAlignment="Center" FontWeight="Bold" />
 
-                                    <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal">
+                                    <DatePicker Name="textblockFromPeriod" FontWeight="Bold"  Background="#00754C7C" Foreground="White"
+                                     Margin="3,0,3,0"
+                                     materialDesign:HintAssist.Hint=" От"  Text="{Binding FromPeriod}" Width="100"  VerticalAlignment="Bottom"
+                                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" CalendarOpened="textblockFromPeriod_CalendarOpened" BorderBrush="White" CalendarClosed="textblockFromPeriod_CalendarClosed"   />
 
-                                        <DatePicker Name="textblockFromPeriod" FontWeight="Bold"
-                                             Margin="3,0,3,0"
-                                             materialDesign:HintAssist.Hint=" От"  Text="{Binding FromPeriod}" Width="100"  VerticalAlignment="Bottom"
-                                             Style="{StaticResource MaterialDesignFloatingHintDatePicker}" CalendarOpened="textblockFromPeriod_CalendarOpened"
-                                                    Foreground="White" BorderBrush="Black" MouseEnter="Datepicker_mouseenter_From"/>
-
-                                        <DatePicker Name="textblockToPeriod" FontWeight="Bold"                               
-                                              Margin="3,0,3,0"
-                                             materialDesign:HintAssist.Hint=" До" Text="{Binding FromPeriod}"  Width="100" VerticalAlignment="Bottom"
-                                             Style="{StaticResource MaterialDesignFloatingHintDatePicker}" CalendarOpened="textblockFromPeriod_CalendarOpened"
-                                                    Foreground="White" BorderBrush="Black" MouseEnter="Datepicker_mouseenter_To"/>
-                                    </StackPanel>
+                                    <DatePicker Name="textblockToPeriod" FontWeight="Bold"   Background="#009C27B0" Foreground="White"                                  
+                                      Margin="3,0,3,0"
+                                     materialDesign:HintAssist.Hint=" До" Text="{Binding FromPeriod}"  Width="100" VerticalAlignment="Bottom"
+                                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" CalendarOpened="textblockFromPeriod_CalendarOpened" CalendarClosed="textblockFromPeriod_CalendarClosed" BorderBrush="White"  />
+                                </StackPanel>
                                 </StackPanel>
                             </Grid>
                         </ListViewItem>

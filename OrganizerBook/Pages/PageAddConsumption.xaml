@@ -71,7 +71,7 @@
 
         <DatePicker Name="textboxAddDate" Grid.Column="1" Grid.Row="6" Margin="10" Text="" VerticalAlignment="Center"
                         materialDesign:HintAssist.Hint="Введите дату"
-                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Foreground="Black" BorderBrush="Black" MouseEnter="Datepicker_mouseenter"/>
+                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Foreground="Black" BorderBrush="Black"/>
 
         <ComboBox Name="comboboxUserAddWindow" Margin="10" VerticalAlignment="Center"
                   DisplayMemberPath="ShowName"
