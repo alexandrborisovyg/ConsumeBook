@@ -372,6 +372,28 @@ namespace OrganizerBook.Pages
 
         private void AcceptFilter_Click(object sender, RoutedEventArgs e)
         {
+            int resultFromValue, resultToValue;
+            DateTime resultFromPeriod, resultToPeriod;
+
+            if (textblockFromValue.Text != "0")
+            {
+                Int32.TryParse(textblockFromValue.Text, out resultFromValue);
+                if ( resultFromValue == 0)
+                {
+                    MessageBox.Show("Некорректные данные в фильтре");
+                    return;
+                }
+            }
+            if (textblockToValue.Text != "0")
+            {
+                Int32.TryParse(textblockToValue.Text, out resultToValue);
+                if (resultToValue == 0)
+                {
+                    MessageBox.Show("Некорректные данные в фильтре");
+                    return;
+                }
+            }
+
             using (ApplicationContext db1 = new ApplicationContext())
             {
                 comboboxMonth.SelectedIndex = comboboxYear.SelectedIndex = 0;

@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
-        Title="OrganizerBook" Width="1000" Height="600" Background="WhiteSmoke" SizeChanged="Window_SizeChanged">
+        Title="OrganizerBook" Width="1000" Height="600" Background="WhiteSmoke" SizeChanged="Window_SizeChanged" Icon="pack://siteoforigin:,,,/Resources/ob.png">
 
     <Window.Resources>
         <local:BindingMainWindow x:Key="filtersElements"/>
