@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Data.Entity;
 using System.Globalization;
+using System.Windows.Media;
 
 namespace OrganizerBook.Pages
 {
@@ -537,6 +538,12 @@ namespace OrganizerBook.Pages
             textblockFromPeriod.BorderBrush = System.Windows.Media.Brushes.Black;
         }
 
+        private void textblockFromPeriod_CalendarClosed(object sender, RoutedEventArgs e)
+        {
+            textblockToPeriod.Foreground = Brushes.White;
+            textblockFromPeriod.Foreground = Brushes.White;
+        }
+
         private void textblockFromPeriod_CalendarOpened(object sender, RoutedEventArgs e)
         {
             if(textblockFromPeriod.Text == "01.01.0001" && textblockToPeriod.Text == "01.01.0001" )
@@ -544,6 +551,8 @@ namespace OrganizerBook.Pages
                 textblockFromPeriod.Text = DateTime.Today.ToShortDateString();
                 textblockToPeriod.Text = DateTime.Today.ToShortDateString();
             }
+            textblockToPeriod.Foreground = Brushes.Black;
+            textblockFromPeriod.Foreground = Brushes.Black;
         }
 
         private void consumptionGrid_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)

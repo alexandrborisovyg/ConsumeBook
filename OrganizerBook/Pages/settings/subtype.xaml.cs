@@ -130,12 +130,12 @@ namespace OrganizerBook.Pages.settings
                 }
                 else
                 {
-                    MessageBox.Show("Не выбрано человек");
+                    MessageBox.Show("Стандартный подтип удалить нельзя!");
                 }
             }
             else
             {
-                MessageBox.Show("Стандартный подтип удалить нельзя!");
+                MessageBox.Show("Не выбран подтип");
             }
         }
 
