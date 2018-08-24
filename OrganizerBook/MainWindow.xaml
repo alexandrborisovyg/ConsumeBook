@@ -7,42 +7,61 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
-        Title="OrganizerBook" Width="1000" Height="600" Background="WhiteSmoke" SizeChanged="Window_SizeChanged" Icon="pack://siteoforigin:,,,/Resources/ob.png">
+        Title="OrganizerBook" Width="1000" Height="680" Background="WhiteSmoke" SizeChanged="Window_SizeChanged" MinWidth="1000" MinHeight="680" ShowInTaskbar="False" WindowStyle="None">
 
     <Window.Resources>
         <local:BindingMainWindow x:Key="filtersElements"/>
     </Window.Resources>
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="331*"/>
-            <ColumnDefinition Width="165*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Grid.ColumnSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-            <Button x:Name="buttonFilter" Grid.Column="0" Height="Auto" Click="FilterClick"  materialDesign:ShadowAssist.ShadowDepth="Depth5" >Фильтр</Button>
-            <Button x:Name="buttonAdd" Grid.Column="1" Height="Auto" Click="AddClick" materialDesign:ShadowAssist.ShadowDepth="Depth5" >Добавить</Button>
-
+        <Grid Grid.Row="0"  Background="White">
+            <Image Source="Resources\logo.png" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Click="SettingsShow" Height="60" Width="60"  >
+                    <materialDesign:PackIcon Kind="Settings"  Foreground="#FF9C27B0" Width="40" Height="40" Margin="-10" />
+                </Button>
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center"  Click="Button_Click"  Width="60" Height="60"  >
+                    <materialDesign:PackIcon Kind="Close"  Foreground="#FF9C27B0" Width="40" Height="40"  Margin="-10" />
+                </Button>
+            </StackPanel>
         </Grid>
+        <Grid Grid.Row="1">
 
-        <Grid Grid.Row="1" x:Name="gridCursor" HorizontalAlignment="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="100*"/>
+            </Grid.RowDefinitions>
 
+            <Grid Grid.Row="0" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="buttonFilter" Grid.Column="0" Height="Auto" Click="FilterClick"  materialDesign:ShadowAssist.ShadowDepth="Depth5" >Фильтр</Button>
+                <Button x:Name="buttonAdd" Grid.Column="1" Height="Auto" Click="AddClick" materialDesign:ShadowAssist.ShadowDepth="Depth5" >Добавить</Button>
+
+            </Grid>
+
+            <Grid Grid.Row="1" x:Name="gridCursor" HorizontalAlignment="Left">
+
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="114*"/>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="413*"/>
+                </Grid.RowDefinitions>
+                <Frame x:Name="Main" NavigationUIVisibility="Hidden" Grid.RowSpan="3"/>
+            </Grid>
         </Grid>
-
-        <Grid Grid.Row="2" Grid.ColumnSpan="2">
-            <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
-        </Grid>
-
     </Grid>
 
 </Window>

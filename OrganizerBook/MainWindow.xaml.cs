@@ -2,6 +2,10 @@
 using System.Windows;
 using OrganizerBook.Pages;
 using System.Windows.Media;
+using System.Windows.Input;
+using System.Data.Entity;
+using System.Globalization;
+
 
 namespace OrganizerBook
 {
@@ -10,6 +14,7 @@ namespace OrganizerBook
     /// </summary>
     public partial class MainWindow : Window
     {
+        ApplicationContext db = new ApplicationContext();
         PageFilter pageFilter;
         PageAddConsumption pageAdd;
         int selectedTab;
@@ -63,6 +68,24 @@ namespace OrganizerBook
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             gridCursor.Width = buttonFilter.ActualWidth;
+        }
+
+
+        private void SettingsShow(object sender, RoutedEventArgs e)
+        {
+            Settings newWindow = new Settings();
+            newWindow.ShowDialog();
+            db.Consumptions.Load();
+            db.Types.Load();
+            db.SubTypes.Load();
+            db.Users.Load();
+           
+        }
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
