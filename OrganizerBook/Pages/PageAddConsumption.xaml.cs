@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Data.Entity;
 using System.Globalization;
+using System.Windows.Media;
 
 namespace OrganizerBook.Pages
 {
@@ -14,14 +15,18 @@ namespace OrganizerBook.Pages
     /// </summary>
     public partial class PageAddConsumption : Page
     {
+        PageFilter filterWindow;
         ApplicationContext db;
         List<Consumption> consumptions;
         bool initialize = false;
         Consumption Consumption;
 
-        public PageAddConsumption()
+        public PageAddConsumption(PageFilter filterWindow)
         {
             InitializeComponent();
+
+            this.filterWindow = filterWindow;
+
             consumptions = new List<Consumption>();
 
             db = new ApplicationContext();
@@ -126,6 +131,7 @@ namespace OrganizerBook.Pages
             dynamic subtypeTemp = comboboxSubTypeAddWindow.SelectedItem;
             Consumption.SubTypeId = subtypeTemp.subTypeId;
 
+            filterWindow.RefreshDataGrid();
         }
 
         private void SelectedTypeAddWindow(object sender, SelectionChangedEventArgs e)
@@ -183,32 +189,38 @@ namespace OrganizerBook.Pages
 
         private void cbtype_open(object sender, EventArgs e)
         {
-            comboboxTypeAddWindow.Foreground = System.Windows.Media.Brushes.Black;
+            comboboxTypeAddWindow.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
+            comboboxTypeAddWindow.Foreground = Brushes.WhiteSmoke;
         }
 
         private void cbtype_close(object sender, EventArgs e)
         {
-            comboboxTypeAddWindow.Foreground = System.Windows.Media.Brushes.White;
+            comboboxTypeAddWindow.Background = Brushes.WhiteSmoke;
+            comboboxTypeAddWindow.Foreground = Brushes.Black;
         }
 
         private void cbsubtype_close(object sender, EventArgs e)
         {
-            comboboxSubTypeAddWindow.Foreground = System.Windows.Media.Brushes.White;
+            comboboxSubTypeAddWindow.Background = Brushes.WhiteSmoke;
+            comboboxSubTypeAddWindow.Foreground = Brushes.Black;
         }
 
         private void cbsubtype_open(object sender, EventArgs e)
         {
-            comboboxSubTypeAddWindow.Foreground = System.Windows.Media.Brushes.Black;
+            comboboxSubTypeAddWindow.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
+            comboboxSubTypeAddWindow.Foreground = Brushes.WhiteSmoke;
         }
 
         private void cbuser_close(object sender, EventArgs e)
         {
-            comboboxUserAddWindow.Foreground = System.Windows.Media.Brushes.White;
+            comboboxUserAddWindow.Background = Brushes.WhiteSmoke;
+            comboboxUserAddWindow.Foreground = Brushes.Black;
         }
 
         private void cbuser_open(object sender, EventArgs e)
         {
-            comboboxUserAddWindow.Foreground = System.Windows.Media.Brushes.Black;
+            comboboxUserAddWindow.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
+            comboboxUserAddWindow.Foreground = Brushes.WhiteSmoke;
         }
 
         private void textboxAddValue_textinput(object sender, KeyEventArgs e)
@@ -219,7 +231,7 @@ namespace OrganizerBook.Pages
 
         private void textboxAddDate_mouseenter(object sender, MouseEventArgs e)
         {
-            textboxAddDate.BorderBrush = System.Windows.Media.Brushes.White;
+            textboxAddDate.BorderBrush = Brushes.Black;
         }
     }
 }

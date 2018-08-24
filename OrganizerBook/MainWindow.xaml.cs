@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using OrganizerBook.Pages;
 using System.Windows.Media;
 
@@ -18,7 +19,7 @@ namespace OrganizerBook
             InitializeComponent();
 
             pageFilter = new PageFilter();
-            pageAdd = new PageAddConsumption();
+            pageAdd = new PageAddConsumption(pageFilter);
 
             selectedTab = 0;
             buttonFilter.Background = Brushes.White;
@@ -46,7 +47,7 @@ namespace OrganizerBook
 
         private void AddClick(object sender, RoutedEventArgs e)
         {
-            pageAdd = new PageAddConsumption();
+            pageAdd = new PageAddConsumption(pageFilter);
             Main.Content = pageAdd;
            
             selectedTab = 1;
@@ -62,7 +63,6 @@ namespace OrganizerBook
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             gridCursor.Width = buttonFilter.ActualWidth;
-            
         }
     }
 }

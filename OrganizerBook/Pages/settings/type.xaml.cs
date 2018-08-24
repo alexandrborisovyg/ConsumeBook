@@ -153,6 +153,10 @@ namespace OrganizerBook.Pages.settings
                     MessageBox.Show("Стандартный тип удалить нельзя!");
                 }
             }
+            else
+            {
+                MessageBox.Show("Не выбран тип");
+            }
         }
     }
 }
