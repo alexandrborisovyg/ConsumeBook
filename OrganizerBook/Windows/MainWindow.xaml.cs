@@ -86,6 +86,7 @@ namespace OrganizerBook
             db.Types.Load();
             db.SubTypes.Load();
             db.Users.Load();
+            pageFilter.sum = false;
             pageFilter.RefreshDataGrid();
             pageFilter.FillFilters();
         }

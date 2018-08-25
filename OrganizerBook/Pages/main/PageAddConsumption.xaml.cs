@@ -145,6 +145,8 @@ namespace OrganizerBook.Pages
             filterWindow.sum = false;
             filterWindow.RefreshDataGrid();
             filterWindow.FillFilters();
+
+            MessageBox.Show("Трата добавлена");
         }
 
         private void SelectedTypeAddWindow(object sender, SelectionChangedEventArgs e)

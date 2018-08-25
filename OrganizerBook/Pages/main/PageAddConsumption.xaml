@@ -50,7 +50,6 @@
         <TextBlock Text="Дата" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="Black"/>
         <TextBlock Text="Пользователь" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="2" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="Black"/>
 
-
         <TextBox Name="textboxAddValue" Text="0" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalContentAlignment="Center" TextChanged="textboxAddValue_TextChanged" Margin="10" Foreground="Black" KeyDown="textboxAddValue_textinput" BorderBrush="Black"/>
         <ComboBox Name="comboboxTypeAddWindow" VerticalAlignment="Center" Margin="10"
                      DisplayMemberPath="typeName"
@@ -65,10 +64,6 @@
             Grid.Column="2" Grid.Row="2" SelectionChanged="SelectedSubtypeAddWindow" Foreground="Black" DropDownClosed="cbsubtype_close" DropDownOpened="cbsubtype_open" BorderBrush="Black" />
 
         <TextBox Name="textboxAddDescription" MaxLines="9" Text="" Grid.Column="1" Grid.Row="4" Margin="10" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" Foreground="Black" BorderBrush="#FC000000" />
-        <!--<DatePicker Name="textboxAddDate" Grid.Column="1" Grid.Row="6" Margin="10" Text="" VerticalAlignment="Center"
-                        materialDesign:HintAssist.Hint="Введите дату"
-                        Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Background="{x:Null}"   Foreground="White" BorderBrush="White" MouseEnter="textboxAddDate_mouseenter"/>-->
-
         <DatePicker Name="textboxAddDate" Grid.Column="1" Grid.Row="6" Margin="10" Text="" VerticalAlignment="Center"
                         materialDesign:HintAssist.Hint="Введите дату"
                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Foreground="Black" BorderBrush="Black"/>

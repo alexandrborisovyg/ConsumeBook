@@ -22,7 +22,7 @@
                 <ColumnDefinition Width="90*"/>
             </Grid.ColumnDefinitions>
             <Image Source="..\Resources\logo.png" HorizontalAlignment="Left" Margin="10,0,0,0"/>
-            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="45,-3,0,4" FontSize="20" Foreground="#FF9C27B0">Настройки</TextBlock>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,-3,0,0" FontSize="20" Foreground="#FF9C27B0" FontFamily="Sylfaen" FontWeight="Bold">Настройки</TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Margin="0,0,0.4,0">
                 <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Click="Button_Click" Width="35" Height="35">
                     <materialDesign:PackIcon Kind="Close" Foreground="#FF9C27B0" Width="30" Height="30" Margin="-15"/>
