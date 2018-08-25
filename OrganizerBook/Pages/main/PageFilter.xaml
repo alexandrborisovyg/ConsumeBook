@@ -94,7 +94,7 @@
                     RowBackground="LightGray" AlternatingRowBackground="White" Grid.Row="1" Grid.Column="1" PreviewMouseDoubleClick="consumptionGrid_PreviewMouseDoubleClick" IsReadOnly="false" Background="#00000000" Margin="5">
 
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Дата" Binding="{Binding Path=ShowDate, Mode=OneWay}" Width="17*" />
+                        <DataGridTextColumn Header="Дата" Binding="{Binding Path=ShowDate, Mode=OneWay}" Width="18*" />
                         <DataGridTextColumn Header="Сумма" Binding="{Binding Path=ValueConsumption, Mode=OneWay}" Width="20*" />
                         <DataGridTextColumn Header="Тип" Binding="{Binding Path=TypeName, Mode=OneWay}" Width="20*" />
                         <DataGridTextColumn Header="Подтип" Binding="{Binding Path=SubTypeName, Mode=OneWay}" Width="20*" />
@@ -153,7 +153,11 @@
                     </StackPanel>
 
                     </Grid>
-                <TextBlock Text="{Binding Sum}" x:Name="SumInMenu" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"   FontSize="20" FontFamily="Segoe Marker" />
+                <StackPanel Margin="0, 5, 0, 0" Orientation="Vertical" x:Name="SumInMenu" Background="White">
+                    <TextBlock HorizontalAlignment="Center" Margin="0, 5, 0, 0" Foreground="#FF9C27B0" FontSize="12" FontFamily="Segoe Marker">Итоговая</TextBlock>
+                    <TextBlock HorizontalAlignment="Center" Foreground="#FF9C27B0" FontSize="12" FontFamily="Segoe Marker">сумма</TextBlock>
+                    <TextBlock Text="{Binding Sum}" VerticalAlignment="Center" ToolTip="Итоговая сумма" HorizontalAlignment="Center" Margin="0, 5, 0, 5" Foreground="#FF9C27B0" FontSize="17" FontFamily="Segoe Marker" FontWeight="Bold"/>
+                </StackPanel>
                 <ListView x:Name="ListViewMenu"  Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListViewItem x:Name="ItemSum" Height="75" Visibility="Collapsed">
                             <Grid>

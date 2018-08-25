@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:OrganizerBook"
         mc:Ignorable="d"
-        Title="ConsumptionWindow" Height="500" Width="850" WindowStyle="None" Icon="/OrganizerBook;component/Resources/logo.png">
+        Title="ConsumptionWindow" Height="500" Width="500" WindowStyle="None" Icon="/OrganizerBook;component/Resources/logo.png">
 
 
 
@@ -37,16 +37,16 @@
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="2*"/>
-                <RowDefinition Height="9*"/>
+                <RowDefinition Height="6*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="4*"/>
                 <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Row="0" Grid.Column="1" Background="WhiteSmoke" />

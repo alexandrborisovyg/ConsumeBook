@@ -142,7 +142,9 @@ namespace OrganizerBook.Pages
             dynamic subtypeTemp = comboboxSubTypeAddWindow.SelectedItem;
             Consumption.SubTypeId = subtypeTemp.subTypeId;
 
+            filterWindow.sum = false;
             filterWindow.RefreshDataGrid();
+            filterWindow.FillFilters();
         }
 
         private void SelectedTypeAddWindow(object sender, SelectionChangedEventArgs e)

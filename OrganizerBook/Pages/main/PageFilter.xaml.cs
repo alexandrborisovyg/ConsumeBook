@@ -15,12 +15,14 @@ namespace OrganizerBook.Pages
     /// </summary>
     public partial class PageFilter : Page
     {
+        public bool sum = false;
+
         ApplicationContext db;
         List<Consumption> consumptions;
         DateTime date;
         int startYear = 2010, currentYear, shiftYear = 5;
         int stepChangeCombobox = 0, chooseMonth = -1, chooseDay = -1, chooseYear = -1;
-        bool sum = false, is_FilterActivated = false;
+        bool is_FilterActivated = false;
 
         public PageFilter()
         {
@@ -142,7 +144,7 @@ namespace OrganizerBook.Pages
                                          ValueConsumption = c.Value,
                                          DateConsumption = c.Date,
                                          ShowDate = c.Date.ToShortDateString(),
-                                         UserName = u.Name,// + " " + u.Surname,
+                                         UserName = u.Name + " " + u.Surname,
                                          UserId = u.userId
                                      };
                     var listResult = resultGrid.ToList();
@@ -168,7 +170,7 @@ namespace OrganizerBook.Pages
                                          ValueConsumption = c.Value,
                                          DateConsumption = c.Date,
                                          ShowDate = c.Date.ToShortDateString(),
-                                         UserName = u.Name,// + " " + u.Surname,
+                                         UserName = u.Name + " " + u.Surname,
                                          UserId = u.userId
                                      };
                     var listResult = resultGrid.ToList();
@@ -192,7 +194,7 @@ namespace OrganizerBook.Pages
                                          ValueConsumption = c.Value,
                                          DateConsumption = c.Date,
                                          ShowDate = c.Date.ToShortDateString(),
-                                         UserName = u.Name,// + " " + u.Surname,
+                                         UserName = u.Name + " " + u.Surname,
                                          UserId = u.userId
                                      };
                     var listResult = resultGrid.ToList();
@@ -215,7 +217,7 @@ namespace OrganizerBook.Pages
                                          ValueConsumption = c.Value,
                                          DateConsumption = c.Date,
                                          ShowDate = c.Date.ToShortDateString(),
-                                         UserName = u.Name,// + " " + u.Surname,
+                                         UserName = u.Name + " " + u.Surname,
                                          UserId = u.userId
                                      };
                     var listResult = resultGrid.ToList();
@@ -328,6 +330,7 @@ namespace OrganizerBook.Pages
             db.Consumptions.Remove(consumption);
             db.SaveChanges();
 
+            sum = false;
             if (is_FilterActivated == false)
                 RefreshDataGrid();
             else AcceptFilter_Click(sender, e);

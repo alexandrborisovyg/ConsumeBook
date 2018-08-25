@@ -30,6 +30,12 @@ namespace OrganizerBook
             InitializeComponent();
             Consumption = c;
 
+            double screenHeight = SystemParameters.FullPrimaryScreenHeight;
+            double screenWidth = SystemParameters.FullPrimaryScreenWidth;
+
+            this.Top = (screenHeight - this.Height) / 0x00000002;
+            this.Left = (screenWidth - this.Width) / 0x00000002;
+
             using (ApplicationContext db = new ApplicationContext())
             {
                 initialize = false;
