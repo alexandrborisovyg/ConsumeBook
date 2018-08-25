@@ -80,6 +80,7 @@ namespace OrganizerBook
             db.SubTypes.Load();
             db.Users.Load();
             pageFilter.RefreshDataGrid();
+            pageFilter.FillFilters();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

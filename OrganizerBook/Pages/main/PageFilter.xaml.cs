@@ -45,7 +45,7 @@ namespace OrganizerBook.Pages
             RefreshDataGrid();
         }
 
-        private void FillFilters()
+        public void FillFilters()
         {
             comboboxSubType.Items.Clear();
             comboboxType.Items.Clear();
