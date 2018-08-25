@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
-        Title="OrganizerBook" Width="1000" Height="680" Background="WhiteSmoke" SizeChanged="Window_SizeChanged" MinWidth="1000" MinHeight="620" ShowInTaskbar="True" WindowStyle="None" Icon="Resources/logo.png">
+        Title="OrganizerBook" Width="1000" Height="680" Background="WhiteSmoke" SizeChanged="Window_SizeChanged" MinWidth="1000" MinHeight="620" ShowInTaskbar="True" WindowStyle="None" Icon="/OrganizerBook;component/Resources/logo.png">
 
     <Window.Resources>
         <local:BindingMainWindow x:Key="filtersElements"/>
@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0"  Background="White" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
-            <Image Source="Resources\logo.png" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+            <Image Source="..\Resources\logo.png" HorizontalAlignment="Left" Margin="10,0,0,0"/>
             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="70, 0, 0, 8" FontSize="33" Foreground="#FF9C27B0">Organizer Book</TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Click="SettingsShow" Height="60" Width="60"  >

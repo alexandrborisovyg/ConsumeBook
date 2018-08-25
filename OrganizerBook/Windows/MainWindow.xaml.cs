@@ -79,6 +79,7 @@ namespace OrganizerBook
             db.Types.Load();
             db.SubTypes.Load();
             db.Users.Load();
+            pageFilter.RefreshDataGrid();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

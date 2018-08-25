@@ -106,6 +106,17 @@ namespace OrganizerBook.Pages
 
         private void Accept_ClickAddWindow(object sender, RoutedEventArgs e)
         {
+            if (textboxAddValue.Text != "0")
+            {
+                int resultFromValue;
+                Int32.TryParse(textboxAddValue.Text, out resultFromValue);
+                if (resultFromValue == 0)
+                {
+                    MessageBox.Show("Некорректные данные");
+                    return;
+                }
+            }
+
             Consumption.Description = textboxAddDescription.Text;
             Consumption.Value = Int32.Parse(textboxAddValue.Text);
             Consumption.Date = DateTime.Parse(textboxAddDate.Text);

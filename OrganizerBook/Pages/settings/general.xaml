@@ -1,0 +1,14 @@
+﻿<Page x:Class="OrganizerBook.Pages.settings.general"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OrganizerBook.Pages.settings"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="325"
+      Title="general">
+
+    <Grid>
+        <Button Margin="10" VerticalAlignment="Top" HorizontalContentAlignment="Center" Click="ButtonConsumptionsClear_Click">Стереть все затраты</Button>
+    </Grid>
+</Page>

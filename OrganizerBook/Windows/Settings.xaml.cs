@@ -23,6 +23,7 @@ namespace OrganizerBook
         subtype pageSubtype;
         type pageType;
         people pagePeople;
+        general pageGeneral;
         int selectedTab;
 
         public Settings()
@@ -32,6 +33,7 @@ namespace OrganizerBook
             pageSubtype = new subtype();
             pageType = new type();
             pagePeople = new people();
+            pageGeneral = new general();
 
             selectedTab = 0;
 
@@ -61,6 +63,9 @@ namespace OrganizerBook
 
             buttonSubtype.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
             buttonSubtype.Foreground = Brushes.White;
+
+            buttonGeneral.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
+            buttonGeneral.Foreground = Brushes.White;
         }
 
         private void typeClick(object sender, RoutedEventArgs e)
@@ -79,6 +84,9 @@ namespace OrganizerBook
 
             buttonSubtype.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
             buttonSubtype.Foreground = Brushes.White;
+
+            buttonGeneral.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
+            buttonGeneral.Foreground = Brushes.White;
         }
 
         private void subtypeClick(object sender, RoutedEventArgs e)
@@ -98,6 +106,29 @@ namespace OrganizerBook
 
             buttonType.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
             buttonType.Foreground = Brushes.White;
+
+            buttonGeneral.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
+            buttonGeneral.Foreground = Brushes.White;
+        }
+
+        private void generalClick(object sender, RoutedEventArgs e)
+        {
+            Main.Content = pageGeneral;
+
+            selectedTab = 3;
+            gridCursor.Margin = new Thickness((gridCursor.Width * selectedTab), 0, 0, 0);
+
+            buttonGeneral.Background = Brushes.White;
+            buttonGeneral.Foreground = Brushes.Black;
+
+            buttonPeople.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
+            buttonPeople.Foreground = Brushes.White;
+
+            buttonType.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
+            buttonType.Foreground = Brushes.White;
+
+            buttonSubtype.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
+            buttonSubtype.Foreground = Brushes.White;
         }
 
         private void SettingWindow_SizeChanged(object sender, SizeChangedEventArgs e)
