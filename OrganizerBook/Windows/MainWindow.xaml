@@ -21,10 +21,14 @@
 
         <Grid Grid.Row="0"  Background="White" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
             <Image Source="..\Resources\logo.png" HorizontalAlignment="Left" Margin="10,0,0,0"/>
-            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="70, 0, 0, 8" FontSize="33" Foreground="#FF9C27B0">Organizer Book</TextBlock>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="70, 0, 0, 8" FontSize="33" Foreground="#FF9C27B0" FontFamily="Sprite Graffiti Shadow">Organizer Book</TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                
                 <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Click="SettingsShow" Height="60" Width="60"  >
                     <materialDesign:PackIcon Kind="Settings"  Foreground="#FF9C27B0" Width="40" Height="40" Margin="-10" />
+                </Button>
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center"  Height="60" Width="60" Click="WindowMaximized"  >
+                    <materialDesign:PackIcon Kind="OpenInNew"  Foreground="#FF9C27B0" Width="40" Height="40" Margin="-10" />
                 </Button>
                 <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center"  Click="Button_Click"  Width="60" Height="60"  >
                     <materialDesign:PackIcon Kind="Close"  Foreground="#FF9C27B0" Width="40" Height="40"  Margin="-10" />

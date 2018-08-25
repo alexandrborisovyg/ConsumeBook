@@ -18,6 +18,7 @@ namespace OrganizerBook
         PageFilter pageFilter;
         PageAddConsumption pageAdd;
         int selectedTab;
+        bool maxSize = false;
 
         public MainWindow()
         {
@@ -91,6 +92,20 @@ namespace OrganizerBook
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        private void WindowMaximized(object sender, RoutedEventArgs e)
+        {
+            if (!maxSize)
+            {
+                this.WindowState = WindowState.Maximized;
+                maxSize = true;
+            } else
+            {
+                this.WindowState = WindowState.Normal;
+                maxSize = false;
+            }
+
         }
     }
 }

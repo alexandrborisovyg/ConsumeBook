@@ -23,7 +23,7 @@
             </Grid.RowDefinitions>
 
             <Image Source="..\Resources\logo.png" HorizontalAlignment="Left" Margin="10,0,0,0"/>
-            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="60, 0, 0, 5" FontSize="25" Foreground="#FF9C27B0">Изменить трату</TextBlock>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="60, 0, 0, 5" FontSize="25" Foreground="#FF9C27B0" FontFamily="Sprite Graffiti Shadow">Изменить трату</TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Click="ButtonClose_Click" Width="50" Height="50"  >
                     <materialDesign:PackIcon Kind="Close" Foreground="#FF9C27B0" Width="40" Height="40" Margin="-15" />
