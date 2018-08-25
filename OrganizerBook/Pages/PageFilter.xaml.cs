@@ -535,6 +535,8 @@ namespace OrganizerBook.Pages
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
             AcceptFilter.Visibility = Visibility.Visible;
             DropFilter.Visibility = Visibility.Visible;
+
+            DropFilterKeyWord.Visibility = DropFilterValue.Visibility = DropFilterDate.Visibility = DropFilterSubType.Visibility = DropFilterUser.Visibility = Visibility.Visible;
         }
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
@@ -543,6 +545,8 @@ namespace OrganizerBook.Pages
             ButtonOpenMenu.Visibility = Visibility.Visible;
             AcceptFilter.Visibility = Visibility.Collapsed;
             DropFilter.Visibility = Visibility.Collapsed;
+
+            DropFilterKeyWord.Visibility = DropFilterValue.Visibility = DropFilterDate.Visibility = DropFilterSubType.Visibility = DropFilterUser.Visibility = Visibility.Collapsed;
         }
 
         private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -564,6 +568,44 @@ namespace OrganizerBook.Pages
         {
             textblockToPeriod.Foreground = Brushes.White;
             textblockFromPeriod.Foreground = Brushes.White;
+        }
+
+        private void DropFilterSubtype_Click(object sender, RoutedEventArgs e)
+        {
+            comboboxSubType.SelectedIndex = 0;
+            comboboxType.SelectedIndex = 0;
+        }
+
+        private void DropFilterDate_Click(object sender, RoutedEventArgs e)
+        {
+            textblockFromPeriod.Text = textblockToPeriod.Text = "01.01.0001";
+        }
+
+        private void DropFilterValue_Click(object sender, RoutedEventArgs e)
+        {
+            textblockFromValue.Text = textblockToValue.Text = "0";
+        }
+
+        private void DropFilterKeyWord_Click(object sender, RoutedEventArgs e)
+        {
+            textboxKeyWord.Text = "";
+        }
+
+        private void DropFilterUser_Click(object sender, RoutedEventArgs e)
+        {
+            comboboxUser.SelectedIndex = 0;
+        }
+
+        private void textblockFromValue_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (textblockFromValue.Text == "0")
+                textblockFromValue.Text = "";
+        }
+
+        private void textblockToValue_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (textblockToValue.Text == "0")
+                textblockToValue.Text = "";
         }
 
         private void textblockFromPeriod_CalendarOpened(object sender, RoutedEventArgs e)

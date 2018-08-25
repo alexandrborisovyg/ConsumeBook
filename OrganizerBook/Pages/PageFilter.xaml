@@ -14,21 +14,21 @@
         <global:BindingMainWindow x:Key="filtersElements"/>
         
         <Storyboard x:Key="OpenMenu">
-            <DoubleAnimation Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu" By="230" Duration="0:0:0.5"/>
+            <DoubleAnimation Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu" By="240" Duration="0:0:0.5"/>
         </Storyboard>
         <Storyboard x:Key="CloseMenu">
-            <DoubleAnimation Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu" By="-230" Duration="0:0:0.5"/>
+            <DoubleAnimation Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu" By="-240" Duration="0:0:0.5"/>
         </Storyboard>
         <Storyboard x:Key="OpenMenu1">
             <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="GridData" BeginTime="00:00:00">
-                <SplineThicknessKeyFrame KeyTime="00:00:00" Value="300, 0, 0, 0" />
+                <SplineThicknessKeyFrame KeyTime="00:00:00" Value="310, 0, 0, 0" />
                 <SplineThicknessKeyFrame KeyTime="00:00:0.5" Value="70, 0, 0,0" />
             </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="CloseMenu1">
             <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="GridData" BeginTime="00:00:00">
                 <SplineThicknessKeyFrame KeyTime="00:00:00" Value="70, 0, 0, 0" />
-                <SplineThicknessKeyFrame KeyTime="00:00:0.5" Value="300, 0, 0, 0" />
+                <SplineThicknessKeyFrame KeyTime="00:00:0.5" Value="310, 0, 0, 0" />
             </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
     </Page.Resources>
@@ -155,7 +155,7 @@
                     </Grid>
                 
                     <ListView x:Name="ListViewMenu"  Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                        <ListViewItem x:Name="ItemHome" Height="75">
+                        <ListViewItem x:Name="ItemSum" Height="75">
                             <Grid>
                                 <materialDesign:PackIcon Kind="CashMultiple" Height="45" Width="45" Margin="7,7,0,0"/>
                                 <StackPanel Orientation="Vertical" Margin="60,15,0,0">
@@ -165,18 +165,26 @@
                             </Grid>
                         </ListViewItem>
 
+                        <ListViewItem x:Name="ItemKeyWord" Height="75">
+                        <Grid Width="302">
 
-                        <ListViewItem x:Name="ItemCreate" Height="75">
-                            <Grid>
-                                <materialDesign:PackIcon Kind="KeyVariant" Height="45" Width="45" Margin="7,7,0,0"/>
-                                <StackPanel Orientation="Vertical" Margin="60,-5,0,0" >
-                                    <TextBlock Text="Ключевое слово:" VerticalAlignment="Center"  FontWeight="Bold" Margin="0 10" />
-                                    <TextBox Name="textboxKeyWord" Text="{Binding KeyWord}" HorizontalAlignment="Stretch" Width="213" Background="{x:Null}" Foreground="White" BorderBrush="White"/>
-                                </StackPanel>
+                            <materialDesign:PackIcon Grid.Row="0" Grid.Column="0" Kind="KeyVariant" Height="45" Width="45" Margin="7,7,0,0"/>
+
+                            <Grid Margin="60,-5,0,0">
+                                <TextBlock Text="Ключевое слово:" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <TextBox Name="textboxKeyWord" Text="{Binding KeyWord}" HorizontalAlignment="Left" Width="210" Background="{x:Null}" Foreground="White" BorderBrush="White"/>
                             </Grid>
+
+                            <Grid>
+                                <Button x:Name="DropFilterKeyWord" Height="30" Width="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="DropFilterKeyWord_Click">
+                                    <materialDesign:PackIcon Kind="Refresh" Width="20" Height="20"/>
+                                </Button>
+                            </Grid>
+
+                        </Grid>
                         </ListViewItem>
 
-                        <ListViewItem x:Name="ItemCreate1" Height="75">
+                        <ListViewItem x:Name="ItemValue" Height="75">
                             <Grid>
                                 <materialDesign:PackIcon Kind="CurrencyRub" Height="45" Width="45" Margin="7,7,0,0"/>
                                 <StackPanel Orientation="Vertical" Margin="60,0,0,0">
@@ -186,30 +194,37 @@
                                         <TextBlock Text="До:"  Margin="85,0,0,1"/>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
-                                    <TextBox Name="textblockFromValue" Text="{Binding FromValue}" Width="100" Background="{x:Null}" Foreground="White"  Margin="3,-3,3,0"  BorderBrush="White"/>
-                                        <TextBox Name="textblockToValue"   Text="{Binding ToValue}" Width="100" Background="{x:Null}" Foreground="White"    Margin="3,-3,3,0"  BorderBrush="White"/>
-                                    </StackPanel>
+                                        <TextBox Name="textblockFromValue" Text="{Binding FromValue}" Width="100" Background="{x:Null}" Foreground="White" Margin="3,-3,3,0" BorderBrush="White" KeyDown="textblockFromValue_KeyDown"/>
+                                        <TextBox Name="textblockToValue" Text="{Binding ToValue}" Width="100" Background="{x:Null}" Foreground="White" Margin="3,-3,3,0" BorderBrush="White" KeyDown="textblockToValue_KeyDown"/>
+                                        <Button x:Name="DropFilterValue" Height="30" Width="30" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="DropFilterValue_Click">
+                                            <materialDesign:PackIcon Kind="Refresh" Width="20" Height="20"/>
+                                        </Button>
                                 </StackPanel>
+                            </StackPanel>
                             </Grid>
                         </ListViewItem>
 
-                        <ListViewItem x:Name="ItemData" Height="75">
+                        <ListViewItem x:Name="ItemDate" Height="75">
                             <Grid>
                                 <materialDesign:PackIcon Kind="CalendarClock" Height="45" Width="45" Margin="7,7,0,0"/>
                                 <StackPanel Orientation="Vertical" Margin="60,0,0,0">
                                     <TextBlock Text="Период"   VerticalAlignment="Center" FontWeight="Bold" />
 
-                                <StackPanel Orientation="Horizontal">
-                                    <DatePicker Name="textblockFromPeriod" FontWeight="Bold"  Background="#00754C7C" Foreground="White"
-                                     Margin="3,0,3,0"
-                                     materialDesign:HintAssist.Hint=" От"  Text="{Binding FromPeriod}" Width="100"  VerticalAlignment="Bottom"
-                                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" CalendarOpened="textblockFromPeriod_CalendarOpened" BorderBrush="White" CalendarClosed="textblockFromPeriod_CalendarClosed"   />
+                                    <StackPanel Orientation="Horizontal">
+                                        <DatePicker Name="textblockFromPeriod" FontWeight="Bold"  Background="#00754C7C" Foreground="White"
+                                         Margin="3,0,3,0"
+                                         materialDesign:HintAssist.Hint=" От"  Text="{Binding FromPeriod}" Width="100"  VerticalAlignment="Bottom"
+                                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" CalendarOpened="textblockFromPeriod_CalendarOpened" BorderBrush="White" CalendarClosed="textblockFromPeriod_CalendarClosed"   />
 
-                                    <DatePicker Name="textblockToPeriod" FontWeight="Bold"   Background="#009C27B0" Foreground="White"                                  
-                                      Margin="3,0,3,0"
-                                     materialDesign:HintAssist.Hint=" До" Text="{Binding FromPeriod}"  Width="100" VerticalAlignment="Bottom"
-                                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" CalendarOpened="textblockFromPeriod_CalendarOpened" CalendarClosed="textblockFromPeriod_CalendarClosed" BorderBrush="White"  />
-                                </StackPanel>
+                                        <DatePicker Name="textblockToPeriod" FontWeight="Bold"   Background="#009C27B0" Foreground="White"                                  
+                                          Margin="3,0,3,0"
+                                         materialDesign:HintAssist.Hint=" До" Text="{Binding FromPeriod}"  Width="100" VerticalAlignment="Bottom"
+                                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" CalendarOpened="textblockFromPeriod_CalendarOpened" CalendarClosed="textblockFromPeriod_CalendarClosed" BorderBrush="White"  />
+                                         
+                                        <Button x:Name="DropFilterDate" Height="30" Width="30" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="DropFilterDate_Click">
+                                             <materialDesign:PackIcon Kind="Refresh" Width="20" Height="20"/>
+                                        </Button>
+                                    </StackPanel>
                                 </StackPanel>
                             </Grid>
                         </ListViewItem>
@@ -221,16 +236,21 @@
                                     <TextBlock Text="Тип"   VerticalAlignment="Center" Margin="0,0,0,5" FontWeight="Bold" />
 
                                     <StackPanel Orientation="Horizontal">
-                                        <ComboBox Name="comboboxType" Width="100" Margin="3,-3,3,0"  Background="#FF9C27B0" Foreground="White"  BorderBrush="White"
+                                    <ComboBox Name="comboboxType" Width="100" Margin="3,-3,3,0"  Background="#FF9C27B0" Foreground="White"  BorderBrush="White"
                           DisplayMemberPath="typeName"
                           SelectedValuePath="default"
                           SelectedValue="" SelectionChanged="typeChanged"/>
 
-                                        <ComboBox Name="comboboxSubType" Width="100" Margin="3,-3,3,0"  Background="#FF9C27B0" Foreground="White"  BorderBrush="White"
+                                    <ComboBox Name="comboboxSubType" Width="100" Margin="3,-3,3,0"  Background="#FF9C27B0" Foreground="White"  BorderBrush="White"
                           DisplayMemberPath="subTypeName"
                           SelectedValuePath="default"
                           SelectedValue="" />
-                                    </StackPanel>
+
+                                    <Button x:Name="DropFilterSubType" Height="30" Width="30" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="DropFilterSubtype_Click">
+                                        <materialDesign:PackIcon Kind="Refresh" Width="20" Height="20"/>
+                                    </Button>
+
+                                </StackPanel>
                                 </StackPanel>
                             </Grid>
                         </ListViewItem>
@@ -238,10 +258,13 @@
                         <ListViewItem x:Name="ItemUser" Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Account" Height="45" Width="45" Margin="7,7,0,0"/>
-                                <ComboBox Name="comboboxUser" Background="#FF9C27B0" Foreground="White"  Width="213" Margin="10,15,3,0"  BorderBrush="White"
+                                <ComboBox Name="comboboxUser" Background="#FF9C27B0" Foreground="White"  Width="210" Margin="10, 15, 0, 0"  BorderBrush="White"
                                                 DisplayMemberPath="ShowName"
                                                 SelectedValuePath="default"
                                                 SelectedValue=""/>
+                                <Button x:Name="DropFilterUser" Height="30" Width="30" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="DropFilterUser_Click">
+                                     <materialDesign:PackIcon Kind="Refresh" Width="20" Height="20"/>
+                                </Button>
                             </StackPanel>
                         </ListViewItem>
                     </ListView>
