@@ -153,8 +153,8 @@
                     </StackPanel>
 
                     </Grid>
-                
-                    <ListView x:Name="ListViewMenu"  Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <TextBlock Text="{Binding Sum}" x:Name="SumInMenu" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"   FontSize="20" FontFamily="Segoe Marker" />
+                <ListView x:Name="ListViewMenu"  Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListViewItem x:Name="ItemSum" Height="75" Visibility="Collapsed">
                             <Grid>
                                 <materialDesign:PackIcon Kind="CashMultiple" Height="45" Width="45" Margin="7,7,0,0"/>
