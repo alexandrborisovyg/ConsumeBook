@@ -7,73 +7,98 @@
         xmlns:local="clr-namespace:OrganizerBook"
         mc:Ignorable="d"
         Title="ConsumptionWindow" Height="500" Width="850" WindowStyle="None">
+
+
+
     <Grid Background="WhiteSmoke">
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="9*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" Grid.Column="1" Background="WhiteSmoke" />
-        <Grid Grid.Row="0" Grid.Column="2" Background="WhiteSmoke" />
-        <Grid Grid.Row="1" Grid.Column="1" Background="WhiteSmoke" />
-        <Grid Grid.Row="1" Grid.Column="2" Background="WhiteSmoke" />
-        <Grid Grid.Row="2" Grid.Column="1" Background="WhiteSmoke" />
-        <Grid Grid.Row="2" Grid.Column="2" Background="WhiteSmoke" />
-        <Grid Grid.Row="3" Grid.Column="1" Background="WhiteSmoke" />
-        <Grid Grid.Row="3" Grid.Column="2" Background="WhiteSmoke" />
-        <Grid Grid.Row="4" Grid.Column="1" Background="WhiteSmoke" />
-        <Grid Grid.Row="4" Grid.Column="2" Background="WhiteSmoke" />
-        <Grid Grid.Row="5" Grid.Column="1" Background="WhiteSmoke" />
-        <Grid Grid.Row="5" Grid.Column="2" Background="WhiteSmoke" />
-        <Grid Grid.Row="6" Grid.Column="1" Background="WhiteSmoke" />
-        <Grid Grid.Row="6" Grid.Column="2" Background="WhiteSmoke" />
-        <Grid Grid.Row="7" Grid.Column="1" Background="WhiteSmoke" />
-        <Grid Grid.Row="7" Grid.Column="2" Background="WhiteSmoke" />
+        <Grid Grid.Row="0" MouseLeftButtonDown="Grid_MouseLeftButtonDown" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-        <TextBlock Text="Сумма" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="Black" />
-        <TextBlock Text="Тип\Подтип" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="2" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="Black"/>
-        <TextBlock Text="Описание" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" Grid.ColumnSpan="2" Foreground="Black"/>
-        <TextBlock Text="Дата" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="Black"/>
-        <TextBlock Text="Пользователь" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="2" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="Black"/>
+            <Image Source="Resources\logo.png" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="60, 0, 0, 5" FontSize="25" Foreground="#FF9C27B0">Изменить трату</TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Click="ButtonClose_Click" Width="50" Height="50"  >
+                    <materialDesign:PackIcon Kind="Close" Foreground="#FF9C27B0" Width="40" Height="40" Margin="-15" />
+                </Button>
+            </StackPanel>
+        </Grid>
 
-        <TextBox Name="textboxAddValue" Text="{Binding Value}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalContentAlignment="Center"  Margin="10" Foreground="Black" BorderBrush="Black"/>
-        <ComboBox Name="comboboxType" VerticalAlignment="Center" Margin="10"
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="1" Background="WhiteSmoke" />
+            <Grid Grid.Row="0" Grid.Column="2" Background="WhiteSmoke" />
+            <Grid Grid.Row="1" Grid.Column="1" Background="WhiteSmoke" />
+            <Grid Grid.Row="1" Grid.Column="2" Background="WhiteSmoke" />
+            <Grid Grid.Row="2" Grid.Column="1" Background="WhiteSmoke" />
+            <Grid Grid.Row="2" Grid.Column="2" Background="WhiteSmoke" />
+            <Grid Grid.Row="3" Grid.Column="1" Background="WhiteSmoke" />
+            <Grid Grid.Row="3" Grid.Column="2" Background="WhiteSmoke" />
+            <Grid Grid.Row="4" Grid.Column="1" Background="WhiteSmoke" />
+            <Grid Grid.Row="4" Grid.Column="2" Background="WhiteSmoke" />
+            <Grid Grid.Row="5" Grid.Column="1" Background="WhiteSmoke" />
+            <Grid Grid.Row="5" Grid.Column="2" Background="WhiteSmoke" />
+            <Grid Grid.Row="6" Grid.Column="1" Background="WhiteSmoke" />
+            <Grid Grid.Row="6" Grid.Column="2" Background="WhiteSmoke" />
+            <Grid Grid.Row="7" Grid.Column="1" Background="WhiteSmoke" />
+            <Grid Grid.Row="7" Grid.Column="2" Background="WhiteSmoke" />
+
+            <TextBlock Text="Сумма" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="Black" />
+            <TextBlock Text="Тип\Подтип" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="2" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="Black"/>
+            <TextBlock Text="Описание" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" Grid.ColumnSpan="2" Foreground="Black"/>
+            <TextBlock Text="Дата" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="1" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="Black"/>
+            <TextBlock Text="Пользователь" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="2" Margin="3" FontFamily="Tahoma" FontSize="16" Foreground="Black"/>
+
+            <TextBox Name="textboxAddValue" Text="{Binding Value}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalContentAlignment="Center"  Margin="10" Foreground="Black" BorderBrush="Black"/>
+            <ComboBox Name="comboboxType" VerticalAlignment="Center" Margin="10"
                      DisplayMemberPath="typeName"
                      SelectedValuePath="default"
                      SelectedValue=""
                      Grid.Column="2" Grid.Row="1" SelectionChanged="SelectedType" Foreground="Black" DropDownOpened="cbtype_open" DropDownClosed="cbtype_close" BorderBrush="Black" />
 
-        <ComboBox Name="comboboxSubType" Margin="10"
+            <ComboBox Name="comboboxSubType" Margin="10"
                   DisplayMemberPath="subTypeName"
                   SelectedValuePath="default"
                   SelectedValue=""
                   Grid.Column="2" Grid.Row="2" SelectionChanged="SelectedSubtype" Foreground="Black" DropDownClosed="cbsubtype_close" DropDownOpened="cbsubtype_open" BorderBrush="Black" />
 
-        <TextBox Name="textboxAddDescription" MaxLines="9" Text="{Binding Description}" Grid.Column="1" Grid.Row="4" Margin="10" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" Foreground="Black" BorderBrush="#FC000000" />
-        <DatePicker Name="textBoxDate" Grid.Column="1" Grid.Row="6" Margin="10" Text="{Binding Date}" VerticalAlignment="Center"
+            <TextBox Name="textboxAddDescription" MaxLines="9" Text="{Binding Description}" Grid.Column="1" Grid.Row="4" Margin="10" Grid.ColumnSpan="2" TextWrapping="Wrap" AcceptsReturn="True" Foreground="Black" BorderBrush="#FC000000" />
+            <DatePicker Name="textBoxDate" Grid.Column="1" Grid.Row="6" Margin="10" Text="{Binding Date}" VerticalAlignment="Center"
                         materialDesign:HintAssist.Hint="Введите дату"
                         Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Foreground="Black" BorderBrush="Black" />
 
-        <ComboBox Name="comboboxUser" Margin="10" VerticalAlignment="Center"
+            <ComboBox Name="comboboxUser" Margin="10" VerticalAlignment="Center"
                   DisplayMemberPath="ShowName"
                   SelectedValuePath="default"
                   SelectedValue=""
             Grid.Column="2" Grid.Row="6" SelectionChanged="SelectedUser" Foreground="Black" DropDownClosed="cbuser_close" DropDownOpened="cbuser_open" BorderBrush="Black"/>
 
-        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
-            <Button IsDefault="True" Click="Accept_Click" MinWidth="150" Margin="5" Background="#FF9C27B0" Foreground="WhiteSmoke" FontSize="20" Padding="16,1,16,4">Изменить</Button>
-        </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
+                <Button IsDefault="True" Click="Accept_Click" MinWidth="150" Margin="5" Background="#FF9C27B0" Foreground="WhiteSmoke" FontSize="20" Padding="16,1,16,4">Изменить</Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

@@ -79,13 +79,16 @@ namespace OrganizerBook
             db.Types.Load();
             db.SubTypes.Load();
             db.Users.Load();
-           
         }
-
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }
