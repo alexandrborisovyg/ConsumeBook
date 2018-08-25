@@ -531,6 +531,12 @@ namespace OrganizerBook.Pages
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         {
+            ItemSum.Visibility = Visibility.Visible;
+            ItemKeyWord.Visibility = Visibility.Visible;
+            ItemValue.Visibility = Visibility.Visible;
+            ItemDate.Visibility = Visibility.Visible;
+            ItemType.Visibility = Visibility.Visible;
+            ItemUser.Visibility = Visibility.Visible;
             ButtonCloseMenu.Visibility = Visibility.Visible;
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
             AcceptFilter.Visibility = Visibility.Visible;
@@ -541,6 +547,13 @@ namespace OrganizerBook.Pages
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
         {
+            ItemSum.Visibility = Visibility.Collapsed;
+            ItemKeyWord.Visibility = Visibility.Collapsed;
+            ItemValue.Visibility = Visibility.Collapsed;
+            ItemDate.Visibility = Visibility.Collapsed;
+            ItemType.Visibility = Visibility.Collapsed;
+            ItemUser.Visibility = Visibility.Collapsed;
+            ItemSum.Visibility = Visibility.Collapsed;
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
             ButtonOpenMenu.Visibility = Visibility.Visible;
             AcceptFilter.Visibility = Visibility.Collapsed;

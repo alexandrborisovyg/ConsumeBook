@@ -136,18 +136,18 @@
                             <TranslateTransform/>
                         </TransformGroup>
                     </Grid.RenderTransform>
-                    <Button x:Name="ButtonOpenMenu" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF9C27B0" Click="ButtonOpenMenu_Click">
+                    <Button x:Name="ButtonOpenMenu" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" ToolTip="Открыть фильтры" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF9C27B0" Click="ButtonOpenMenu_Click">
                         <materialDesign:PackIcon Kind="DatabaseSearch" Width="25" Height="25"/>
                     </Button>
 
-                    <Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF9C27B0" Click="ButtonCloseMenu_Click">
+                    <Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Height="60" Width="60" Margin="5" ToolTip="Скрыть фильтры" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF9C27B0" Click="ButtonCloseMenu_Click">
                         <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
                     </Button>
                     <StackPanel Orientation="Horizontal" >
-                        <Button x:Name="AcceptFilter" Visibility="Collapsed" Height="60" Width="60" Margin="5,0,0,0" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF9C27B0" Click="AcceptFilter_Click">
+                        <Button x:Name="AcceptFilter" Visibility="Collapsed" Height="60" Width="60" Margin="5,0,0,0" ToolTip="Применить фильтры" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF9C27B0" Click="AcceptFilter_Click">
                             <materialDesign:PackIcon Kind="CheckCircle" Width="25" Height="25"/>
                         </Button>
-                        <Button x:Name="DropFilter" Visibility="Collapsed" Height="60" Width="60" Margin="5,0,0,0" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF9C27B0" Click="DropFilter_Click">
+                        <Button x:Name="DropFilter" Visibility="Collapsed" Height="60" Width="60" Margin="5,0,0,0" ToolTip="Сбросить фильтры" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF9C27B0" Click="DropFilter_Click">
                             <materialDesign:PackIcon Kind="Refresh" Width="25" Height="25"/>
                         </Button>
                     </StackPanel>
@@ -155,7 +155,7 @@
                     </Grid>
                 
                     <ListView x:Name="ListViewMenu"  Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                        <ListViewItem x:Name="ItemSum" Height="75">
+                        <ListViewItem x:Name="ItemSum" Height="75" Visibility="Collapsed">
                             <Grid>
                                 <materialDesign:PackIcon Kind="CashMultiple" Height="45" Width="45" Margin="7,7,0,0"/>
                                 <StackPanel Orientation="Vertical" Margin="60,15,0,0">
@@ -165,7 +165,7 @@
                             </Grid>
                         </ListViewItem>
 
-                        <ListViewItem x:Name="ItemKeyWord" Height="75">
+                    <ListViewItem x:Name="ItemKeyWord" Height="75" Visibility="Collapsed">
                         <Grid Width="302">
 
                             <materialDesign:PackIcon Grid.Row="0" Grid.Column="0" Kind="KeyVariant" Height="45" Width="45" Margin="7,7,0,0"/>
@@ -184,7 +184,7 @@
                         </Grid>
                         </ListViewItem>
 
-                        <ListViewItem x:Name="ItemValue" Height="75">
+                    <ListViewItem x:Name="ItemValue" Height="75" Visibility="Collapsed">
                             <Grid>
                                 <materialDesign:PackIcon Kind="CurrencyRub" Height="45" Width="45" Margin="7,7,0,0"/>
                                 <StackPanel Orientation="Vertical" Margin="60,0,0,0">
@@ -204,7 +204,7 @@
                             </Grid>
                         </ListViewItem>
 
-                        <ListViewItem x:Name="ItemDate" Height="75">
+                    <ListViewItem x:Name="ItemDate" Height="75" Visibility="Collapsed">
                             <Grid>
                                 <materialDesign:PackIcon Kind="CalendarClock" Height="45" Width="45" Margin="7,7,0,0"/>
                                 <StackPanel Orientation="Vertical" Margin="60,0,0,0">
@@ -229,7 +229,7 @@
                             </Grid>
                         </ListViewItem>
 
-                        <ListViewItem x:Name="ItemType" Height="75">
+                    <ListViewItem x:Name="ItemType" Height="75" Visibility="Collapsed">
                             <Grid>
                                 <materialDesign:PackIcon Kind="EqualBox" Height="45" Width="45" Margin="7,7,0,0"/>
                                 <StackPanel Orientation="Vertical" Margin="60,0,0,0">
@@ -255,17 +255,27 @@
                             </Grid>
                         </ListViewItem>
 
-                        <ListViewItem x:Name="ItemUser" Height="60">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Account" Height="45" Width="45" Margin="7,7,0,0"/>
-                                <ComboBox Name="comboboxUser" Background="#FF9C27B0" Foreground="White"  Width="210" Margin="10, 15, 0, 0"  BorderBrush="White"
+                    <ListViewItem x:Name="ItemUser" Height="60" Visibility="Collapsed">
+                        <Grid Width="302">
+
+                            <materialDesign:PackIcon Kind="Account" Height="45" Width="45" Margin="7,7,0,0"/>
+
+                            <Grid Margin="60,-5,0,0">
+                                <TextBlock Text="Человек:" VerticalAlignment="Top" FontWeight="Bold"/>
+                                <ComboBox Name="comboboxUser" Background="#FF9C27B0" Foreground="White"  Width="210" Margin="-27, 15, 0, 0"  BorderBrush="White"
                                                 DisplayMemberPath="ShowName"
                                                 SelectedValuePath="default"
                                                 SelectedValue=""/>
+                            </Grid>
+
+                            <Grid>
                                 <Button x:Name="DropFilterUser" Height="30" Width="30" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="DropFilterUser_Click">
-                                     <materialDesign:PackIcon Kind="Refresh" Width="20" Height="20"/>
+                                    <materialDesign:PackIcon Kind="Refresh" Width="20" Height="20"/>
                                 </Button>
-                            </StackPanel>
+                            </Grid>
+
+                        </Grid>
+                        
                         </ListViewItem>
                     </ListView>
             </StackPanel>
