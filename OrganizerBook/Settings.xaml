@@ -6,32 +6,47 @@
         xmlns:local="clr-namespace:OrganizerBook"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Settings" Height="350" Width="325" Name="SettingWindow" SizeChanged="SettingWindow_SizeChanged">
+        Title="Settings" Height="350" Width="325" Name="SettingWindow" SizeChanged="SettingWindow_SizeChanged" Icon="Resources/logo.png" WindowStyle="None">
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="1.5*"/>
             <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" Background="White" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="229*"/>
+                <ColumnDefinition Width="90*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="Resources\logo.png" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="45,-3,0,4" FontSize="20" Foreground="#FF9C27B0">Настройки</TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Margin="0,0,0.4,0">
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Click="Button_Click" Width="35" Height="35">
+                    <materialDesign:PackIcon Kind="Close" Foreground="#FF9C27B0" Width="30" Height="30" Margin="-15"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="buttonPeople" Grid.Column="0"  Height="Auto" Click="peopleClick" materialDesign:ShadowAssist.ShadowDepth="Depth4" >Люди</Button>
-            <Button x:Name="buttonType" Grid.Column="1" Height="Auto" Click="typeClick" materialDesign:ShadowAssist.ShadowDepth="Depth4" >Тип</Button>
-            <Button x:Name="buttonSubtype" Grid.Column="2"  Height="Auto" Click="subtypeClick" materialDesign:ShadowAssist.ShadowDepth="Depth4" >Подтип</Button>
+            <Button x:Name="buttonPeople" Grid.Column="0" Height="Auto" Click="peopleClick" materialDesign:ShadowAssist.ShadowDepth="Depth3" >Люди</Button>
+            <Button x:Name="buttonType" Grid.Column="1" Height="Auto" Click="typeClick" materialDesign:ShadowAssist.ShadowDepth="Depth3" >Тип</Button>
+            <Button x:Name="buttonSubtype" Grid.Column="2"  Height="Auto" Click="subtypeClick" materialDesign:ShadowAssist.ShadowDepth="Depth3" >Подтип</Button>
         </Grid>
 
-        <Grid Grid.Row="1" x:Name="gridCursor" HorizontalAlignment="Left">
+        <Grid Grid.Row="2" x:Name="gridCursor" HorizontalAlignment="Left">
 
         </Grid>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
             <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
         </Grid>
     </Grid>

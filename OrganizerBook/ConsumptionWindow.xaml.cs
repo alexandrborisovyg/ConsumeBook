@@ -237,5 +237,15 @@ namespace OrganizerBook
         {
             textBoxDate.BorderBrush = Brushes.Black;
         }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void ButtonClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

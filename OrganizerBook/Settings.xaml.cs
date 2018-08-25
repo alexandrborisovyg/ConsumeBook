@@ -104,5 +104,15 @@ namespace OrganizerBook
         {
             gridCursor.Width = buttonPeople.ActualWidth;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }
