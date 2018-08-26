@@ -6,7 +6,6 @@ using System.Windows.Input;
 using System.Data.Entity;
 using System.Globalization;
 
-
 namespace OrganizerBook
 {
     /// <summary>

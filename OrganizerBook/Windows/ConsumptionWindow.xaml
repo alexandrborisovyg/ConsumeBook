@@ -8,8 +8,6 @@
         mc:Ignorable="d"
         Title="ConsumptionWindow" Height="500" Width="500" WindowStyle="None" Icon="/OrganizerBook;component/Resources/logo.png">
 
-
-
     <Grid Background="WhiteSmoke">
 
         <Grid.RowDefinitions>
@@ -101,4 +99,5 @@
             </StackPanel>
         </Grid>
     </Grid>
+
 </Window>

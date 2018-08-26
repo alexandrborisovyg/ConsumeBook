@@ -7,6 +7,7 @@ using System.Windows.Input;
 using System.Data.Entity;
 using System.Globalization;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace OrganizerBook.Pages
 {
@@ -35,6 +36,13 @@ namespace OrganizerBook.Pages
             db.SubTypes.Load();
             db.Users.Load();
             FillAddWindow();
+        }
+
+        public void CallPopup(string text)
+        {
+            popupMessage.Text = text;
+            Storyboard s = (Storyboard)this.TryFindResource("ShowPopup");
+            BeginStoryboard(s);
         }
 
         private void FillAddWindow()
@@ -112,7 +120,7 @@ namespace OrganizerBook.Pages
                 Int32.TryParse(textboxAddValue.Text, out resultFromValue);
                 if (resultFromValue == 0)
                 {
-                    MessageBox.Show("Некорректные данные");
+                    CallPopup("Некорректные данные");
                     return;
                 }
             }
@@ -146,7 +154,7 @@ namespace OrganizerBook.Pages
             filterWindow.RefreshDataGrid();
             filterWindow.FillFilters();
 
-            MessageBox.Show("Трата добавлена");
+            CallPopup("Трата добавлена");
         }
 
         private void SelectedTypeAddWindow(object sender, SelectionChangedEventArgs e)

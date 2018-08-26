@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.Entity;
+using System.Windows.Media.Animation;
 
 namespace OrganizerBook.Pages.settings
 {
@@ -27,6 +28,13 @@ namespace OrganizerBook.Pages.settings
         {
             db = new ApplicationContext();
             InitializeComponent();
+        }
+
+        public void CallPopup(string text)
+        {
+            popupMessage.Text = text;
+            Storyboard s = (Storyboard)this.TryFindResource("ShowPopup");
+            BeginStoryboard(s);
         }
 
         public void InititalizeListComboboxSubtype()
@@ -62,13 +70,13 @@ namespace OrganizerBook.Pages.settings
                 db.SubTypes.Add(newSubtype);
                 db.SaveChanges();
 
-                MessageBox.Show($"Подтип { newSubtype.SubTypeName} успешно добавлен в базу");
+                CallPopup($"Подтип { newSubtype.SubTypeName}\nдобавлен");
                 changeTypeOfSubtype(null, null);
                 nameSubTypeTextBox.Text = "";
             }
             else
             {
-                MessageBox.Show("Не заполнено поле 'Подтип'!");
+                CallPopup("Не заполнено поле 'Подтип'");
             }
         }
 
@@ -125,17 +133,17 @@ namespace OrganizerBook.Pages.settings
                     db.SubTypes.Remove(subtype);
                     db.SaveChanges();
 
-                    MessageBox.Show($"Подтип '{subtype.SubTypeName}' удален из базы");
+                    CallPopup($"Подтип '{subtype.SubTypeName}'\nудален");
                     changeTypeOfSubtype(null, null);
                 }
                 else
                 {
-                    MessageBox.Show("Стандартный подтип удалить нельзя!");
+                    CallPopup("Стандартный подтип\nудалить нельзя");
                 }
             }
             else
             {
-                MessageBox.Show("Не выбран подтип");
+                CallPopup("Не выбран подтип");
             }
         }
 

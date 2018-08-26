@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.Entity;
+using System.Windows.Media.Animation;
 
 namespace OrganizerBook.Pages.settings
 {
@@ -30,13 +31,20 @@ namespace OrganizerBook.Pages.settings
             db = new ApplicationContext();
         }
 
+        public void CallPopup(string text)
+        {
+            popupMessage.Text = text;
+            Storyboard s = (Storyboard)this.TryFindResource("ShowPopup");
+            BeginStoryboard(s);
+        }
+
         private void ButtonConsumptionsClear_Click(object sender, RoutedEventArgs e)
         {
             var itemsToDelete = db.Set<Consumption>();
             db.Consumptions.RemoveRange(itemsToDelete);
             db.SaveChanges();
 
-            MessageBox.Show("Данные стерты");
+            CallPopup("Все траты удалены");
         }
     }
 }

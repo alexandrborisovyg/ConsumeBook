@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.Entity;
+using System.Windows.Media.Animation;
 
 namespace OrganizerBook.Pages.settings
 {
@@ -27,6 +28,13 @@ namespace OrganizerBook.Pages.settings
         {
             db = new ApplicationContext();
             InitializeComponent();
+        }
+
+        public void CallPopup(string text)
+        {
+            popupMessage.Text = text;
+            Storyboard s = (Storyboard)this.TryFindResource("ShowPopup");
+            BeginStoryboard(s);
         }
 
         public void RefreshListBoxType()
@@ -67,13 +75,13 @@ namespace OrganizerBook.Pages.settings
                 db.SubTypes.Add(newSubType);
                 db.SaveChanges();
 
-                MessageBox.Show($"Тип {newType.TypeName} успешно добавлен в базу");
+                CallPopup($"Тип {newType.TypeName}\nдобавлен");
                 RefreshListBoxType();
                 nameTypeTextBox.Text = "";
             }
             else
             {
-                MessageBox.Show("Не заполнено поле 'Тип'!");
+                CallPopup("Не заполнено поле 'Тип'");
             }
         }
 
@@ -147,15 +155,17 @@ namespace OrganizerBook.Pages.settings
                     db.SaveChanges();
 
                     RefreshListBoxType();
+
+                    CallPopup($"Тип {typedel.TypeName}\nудален");
                 }
                 else
                 {
-                    MessageBox.Show("Стандартный тип удалить нельзя!");
+                    CallPopup("Стандартный тип\nудалить нельзя");
                 }
             }
             else
             {
-                MessageBox.Show("Не выбран тип");
+                CallPopup("Не выбран тип");
             }
         }
     }

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.Entity;
+using System.Windows.Media.Animation;
 
 namespace OrganizerBook.Pages.settings
 {
@@ -27,6 +28,13 @@ namespace OrganizerBook.Pages.settings
         {
             db = new ApplicationContext();
             InitializeComponent();
+        }
+
+        public void CallPopup(string text)
+        {
+            popupMessage.Text = text;
+            Storyboard s = (Storyboard)this.TryFindResource("ShowPopup");
+            BeginStoryboard(s);
         }
 
         public void RefreshListBoxUser()
@@ -55,7 +63,7 @@ namespace OrganizerBook.Pages.settings
                 db.Users.Add(newUser);
                 db.SaveChanges();
 
-                MessageBox.Show($"Пользователь {newUser.Name} {newUser.Surname} успешно добавлен в базу)");
+                CallPopup($"{newUser.Name} {newUser.Surname}\nдобавлен");
 
                 nameUserTextBox.Text = surnameUserTextBox.Text = "";
 
@@ -63,7 +71,7 @@ namespace OrganizerBook.Pages.settings
             }
             else
             {
-                MessageBox.Show("Не заполнено поле 'Имя'!");
+                CallPopup("Не заполнено поле 'Имя'");
             }
         }
 
@@ -109,13 +117,13 @@ namespace OrganizerBook.Pages.settings
                 db.Users.Remove(user);
                 db.SaveChanges();
 
-                MessageBox.Show($"Пользователь {user.Name} {user.Surname} удален из базы");
+                CallPopup($"{user.Name} {user.Surname}\nудален");
 
                 RefreshListBoxUser();
             }
             else
             {
-                MessageBox.Show("Не выбрано человек");
+                CallPopup("Не выбран человек");
             }
         }
     }

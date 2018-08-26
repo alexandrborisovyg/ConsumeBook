@@ -7,6 +7,7 @@ using System.Windows.Input;
 using System.Data.Entity;
 using System.Globalization;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace OrganizerBook.Pages
 {
@@ -45,6 +46,13 @@ namespace OrganizerBook.Pages
             comboboxDay.SelectedIndex = 0;
 
             RefreshDataGrid();
+        }
+
+        public void CallPopup(string text)
+        {
+            popupMessage.Text = text;
+            Storyboard s = (Storyboard)this.TryFindResource("ShowPopup");
+            BeginStoryboard(s);
         }
 
         public void FillFilters()
@@ -318,6 +326,8 @@ namespace OrganizerBook.Pages
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            CallPopup("Трата удалена");
+
             // если ни одного объекта не выделено, выходим
             if (consumptionGrid.SelectedItem == null) return;
             // получаем выделенный объект
@@ -376,14 +386,13 @@ namespace OrganizerBook.Pages
         private void AcceptFilter_Click(object sender, RoutedEventArgs e)
         {
             int resultFromValue, resultToValue;
-            DateTime resultFromPeriod, resultToPeriod;
 
             if (textblockFromValue.Text != "0")
             {
                 Int32.TryParse(textblockFromValue.Text, out resultFromValue);
                 if ( resultFromValue == 0)
                 {
-                    MessageBox.Show("Некорректные данные в фильтре");
+                    CallPopup("Некорректные\nданные в фильтре");
                     return;
                 }
             }
@@ -392,7 +401,7 @@ namespace OrganizerBook.Pages
                 Int32.TryParse(textblockToValue.Text, out resultToValue);
                 if (resultToValue == 0)
                 {
-                    MessageBox.Show("Некорректные данные в фильтре");
+                    CallPopup("Некорректные\nданные в фильтре");
                     return;
                 }
             }
@@ -678,6 +687,7 @@ namespace OrganizerBook.Pages
                     db.Entry(consumption).State = EntityState.Modified;
                     db.SaveChanges();
                 }
+                CallPopup("Трата изменена");
             }
             sum = false;
             if (is_FilterActivated == false)
