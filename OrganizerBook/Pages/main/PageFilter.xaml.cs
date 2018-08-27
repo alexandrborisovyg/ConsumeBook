@@ -237,14 +237,14 @@ namespace OrganizerBook.Pages
 
                 consumptionGrid.Items.SortDescriptions.Clear();
 
-                consumptionGrid.Items.SortDescriptions.Add(new System.ComponentModel.SortDescription(column.SortMemberPath, System.ComponentModel.ListSortDirection.Ascending));
+                consumptionGrid.Items.SortDescriptions.Add(new System.ComponentModel.SortDescription(column.SortMemberPath, System.ComponentModel.ListSortDirection.Descending));
 
                 // Apply sort
                 foreach (var col in consumptionGrid.Columns)
                 {
                     col.SortDirection = null;
                 }
-                column.SortDirection = System.ComponentModel.ListSortDirection.Ascending;
+                column.SortDirection = System.ComponentModel.ListSortDirection.Descending;
                 consumptionGrid.Items.Refresh();
 
                 if (!sum)
@@ -439,7 +439,7 @@ namespace OrganizerBook.Pages
                                            )
                                        ) &&
                                        (
-                                           textblockFromPeriod.Text == "01.01.0001" && textblockToPeriod.Text == "01.01.0001" ||
+                                           textblockFromPeriod.Text == "1/1/0001" && textblockToPeriod.Text == "1/1/0001" ||
                                            (
                                            DateTime.Parse(textblockToPeriod.Text) >= DateTime.Parse(textblockFromPeriod.Text)
                                            &&
@@ -480,14 +480,14 @@ namespace OrganizerBook.Pages
 
             consumptionGrid.Items.SortDescriptions.Clear();
 
-            consumptionGrid.Items.SortDescriptions.Add(new System.ComponentModel.SortDescription(column.SortMemberPath, System.ComponentModel.ListSortDirection.Ascending));
+            consumptionGrid.Items.SortDescriptions.Add(new System.ComponentModel.SortDescription(column.SortMemberPath, System.ComponentModel.ListSortDirection.Descending));
 
             // Apply sort
             foreach (var col in consumptionGrid.Columns)
             {
                 col.SortDirection = null;
             }
-            column.SortDirection = System.ComponentModel.ListSortDirection.Ascending;
+            column.SortDirection = System.ComponentModel.ListSortDirection.Descending;
             consumptionGrid.Items.Refresh();
         }
 
