@@ -92,21 +92,27 @@ namespace OrganizerBook.Pages
             {
                 Storyboard typeActive = (Storyboard)this.TryFindResource("FilterActiveType");
                 BeginStoryboard(typeActive);
+                comboboxType.Background = Brushes.Green;
+                comboboxSubType.Background = Brushes.Green;
             }
             else
             {
                 Storyboard typeActive = (Storyboard)this.TryFindResource("FilterDisableType");
                 BeginStoryboard(typeActive);
+                comboboxType.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
+                comboboxSubType.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
             }
             if (comboboxUser.SelectedIndex != 0)
             {
                 Storyboard userActive = (Storyboard)this.TryFindResource("FilterActiveUser");
                 BeginStoryboard(userActive);
+                comboboxUser.Background = Brushes.Green;
             }
             else
             {
                 Storyboard userActive = (Storyboard)this.TryFindResource("FilterDisableUser");
                 BeginStoryboard(userActive);
+                comboboxUser.Background = new SolidColorBrush(Color.FromRgb(156, 39, 176));
             }
         }
 
@@ -178,16 +184,9 @@ namespace OrganizerBook.Pages
             comboboxSubType.SelectedIndex = 0;
             comboboxUser.SelectedIndex = 0;
 
-            Storyboard keyWordActive = (Storyboard)this.TryFindResource("FilterDisableKey");
-            BeginStoryboard(keyWordActive);
-            Storyboard valueActive = (Storyboard)this.TryFindResource("FilterDisableValue");
-            BeginStoryboard(valueActive);
-            Storyboard dateActive = (Storyboard)this.TryFindResource("FilterDisableDate");
-            BeginStoryboard(dateActive);
-            Storyboard typeActive = (Storyboard)this.TryFindResource("FilterDisableType");
-            BeginStoryboard(typeActive);
-            Storyboard userActive = (Storyboard)this.TryFindResource("FilterDisableUser");
-            BeginStoryboard(userActive);
+            comboboxType.Background = Brushes.Green;
+            comboboxSubType.Background = Brushes.Green;
+            comboboxUser.Background = Brushes.Green;
         }
 
         public void RefreshDataGrid()
