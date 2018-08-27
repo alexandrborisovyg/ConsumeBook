@@ -183,10 +183,6 @@ namespace OrganizerBook.Pages
             comboboxType.SelectedIndex = 0;
             comboboxSubType.SelectedIndex = 0;
             comboboxUser.SelectedIndex = 0;
-
-            comboboxType.Background = Brushes.Green;
-            comboboxSubType.Background = Brushes.Green;
-            comboboxUser.Background = Brushes.Green;
         }
 
         public void RefreshDataGrid()
