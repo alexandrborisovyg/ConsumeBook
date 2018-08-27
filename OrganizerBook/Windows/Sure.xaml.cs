@@ -19,9 +19,6 @@ namespace OrganizerBook
     /// </summary>
     public partial class Sure : Window
     {
-        string answer;
-        public static readonly DependencyProperty tProperty = DependencyProperty.Register("answer", typeof(string), typeof(MainWindow));
-
         public Sure()
         {
             InitializeComponent();
@@ -45,14 +42,17 @@ namespace OrganizerBook
 
         private void Accept_Click(object sender, RoutedEventArgs e)
         {
-            if (answer == "Да")
+            BindingSureWindow sureElements = (BindingSureWindow)this.Resources["sureElements"];
+            sureElements.Answer = answerTextBox.Text;
+
+            if (sureElements.Answer == "Да")
             {
                 this.DialogResult = true;
                 Close();
             }
             else
             {
-                
+                answerTextBox.BorderBrush = Brushes.Red;
             }
         }
     }

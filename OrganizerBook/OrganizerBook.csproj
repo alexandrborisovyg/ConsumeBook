@@ -79,6 +79,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\BindingSureWindow.cs" />
     <Compile Include="Pages\main\PageAddConsumption.xaml.cs">
       <DependentUpon>PageAddConsumption.xaml</DependentUpon>
     </Compile>

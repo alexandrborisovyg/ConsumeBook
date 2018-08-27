@@ -6,9 +6,13 @@
         xmlns:local="clr-namespace:OrganizerBook"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Sure" MinHeight="170" MinWidth="310" Height="170" Width="310" Name="SureWindow" Icon="/OrganizerBook;component/Resources/logo.png" WindowStyle="None">
+        Title="Sure" MinHeight="180" MinWidth="310" Height="180" Width="310" Name="SureWindow" Icon="/OrganizerBook;component/Resources/logo.png" WindowStyle="None">
 
-    <Grid>
+    <Window.Resources>
+        <local:BindingSureWindow x:Key="sureElements"/>
+    </Window.Resources>
+    
+    <Grid DataContext="{StaticResource sureElements}">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="2.5*"/>
@@ -31,8 +35,16 @@
         <Grid Grid.Row="1" DataContext="{Binding Path=Answer}">
             <StackPanel>
                 <TextBlock FontSize="14" Margin="5, 10, 5, 5" HorizontalAlignment="Center" Foreground="#FF9C27B0" FontWeight="Bold">Введите "Да", чтобы удалить все затраты</TextBlock>
-                <TextBox x:Name="answerTextBox" Text="{Binding Answer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Center" Width="100" FontSize="14" Margin="10, 5, 10, 5" HorizontalAlignment="Center" Foreground="#FF9C27B0"></TextBox>
-                <Button x:Name="Accept" Margin="10, 5, 10, 5" Click="Accept_Click">Подтвердить</Button>
+                <TextBox x:Name="answerTextBox" HorizontalContentAlignment="Center" Width="100" FontSize="14" Margin="10, 5, 10, 5" HorizontalAlignment="Center" Foreground="#FF9C27B0">
+                    <TextBox.Text>
+                        <Binding Path="Answer">
+                            <Binding.ValidationRules>
+                                <DataErrorValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <Button x:Name="Accept" Margin="10, 5, 10, 0" Click="Accept_Click">Подтвердить</Button>
             </StackPanel>
         </Grid>
     </Grid>
