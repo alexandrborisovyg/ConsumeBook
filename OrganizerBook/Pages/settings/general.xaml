@@ -10,7 +10,12 @@
 
     <Page.Resources>
         <Storyboard x:Key="ShowPopup">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="popupMessageGrid">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="popupMessageGrid"
+                        Storyboard.TargetProperty="Visibility">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1.5" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="popupMessageGrid" FillBehavior="Stop">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.8"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.79"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0"/>
@@ -26,7 +31,7 @@
 
     <Grid>
         
-        <Grid Opacity="0" x:Name="popupMessageGrid" Panel.ZIndex="1" >
+        <Grid Opacity="0" x:Name="popupMessageGrid" Panel.ZIndex="1" Visibility="Collapsed">
             <Border Width="180" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 5, 10, 0" CornerRadius="3"
                         Background="#FF9C27B0">
                 <TextBlock x:Name="popupMessage" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 0, 0, 0" Text="My Text" Foreground="White" FontSize="12" FontWeight="Bold">

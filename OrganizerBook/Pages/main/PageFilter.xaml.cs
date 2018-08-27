@@ -326,10 +326,12 @@ namespace OrganizerBook.Pages
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            CallPopup("Трата удалена");
-
             // если ни одного объекта не выделено, выходим
-            if (consumptionGrid.SelectedItem == null) return;
+            if (consumptionGrid.SelectedItem == null)
+            {
+                CallPopup("Не выбрана трата");
+                return;
+            }
             // получаем выделенный объект
             dynamic tempConsumption = consumptionGrid.SelectedItem;
             int consumptionId = tempConsumption.ConsumptionId;
@@ -340,10 +342,14 @@ namespace OrganizerBook.Pages
             db.Consumptions.Remove(consumption);
             db.SaveChanges();
 
+            CallPopup("Трата удалена");
+
             sum = false;
             if (is_FilterActivated == false)
                 RefreshDataGrid();
             else AcceptFilter_Click(sender, e);
+
+            consumptionGrid.SelectedItem = null;
         }
 
         private void RightClick(object sender, RoutedEventArgs e)

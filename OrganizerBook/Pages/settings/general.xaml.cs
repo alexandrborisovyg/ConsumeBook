@@ -40,11 +40,16 @@ namespace OrganizerBook.Pages.settings
 
         private void ButtonConsumptionsClear_Click(object sender, RoutedEventArgs e)
         {
-            var itemsToDelete = db.Set<Consumption>();
-            db.Consumptions.RemoveRange(itemsToDelete);
-            db.SaveChanges();
+            Sure sureWindow = new Sure();
+            if (sureWindow.ShowDialog() == true)
+            {
+                var itemsToDelete = db.Set<Consumption>();
 
-            CallPopup("Все траты удалены");
+                db.Consumptions.RemoveRange(itemsToDelete);
+                db.SaveChanges();
+
+                CallPopup("Все траты удалены");
+            }
         }
     }
 }
