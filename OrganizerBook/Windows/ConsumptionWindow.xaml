@@ -7,7 +7,27 @@
         xmlns:local="clr-namespace:OrganizerBook"
         mc:Ignorable="d"
         Title="ConsumptionWindow" Height="500" Width="500" WindowStyle="None" Icon="/OrganizerBook;component/Resources/logo.png">
-
+    <Window.Resources>
+        <Style
+        x:Key="ButtonClose"
+        TargetType="{x:Type Button}" 
+        BasedOn="{StaticResource MaterialDesignRaisedButton}">
+            <Setter Property="Content">
+                <Setter.Value>
+                    <materialDesign:PackIcon Kind="Close" Foreground="#FF9C27B0" Width="40" Height="40" Margin="-10" ToolTip="Развернуть"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger  Property="IsMouseOver" Value="True">
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            <materialDesign:PackIcon Kind="Close" Foreground="#FF7C0A8F" Width="45" Height="45" Margin="-10" ToolTip="Развернуть"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid Background="WhiteSmoke">
 
         <Grid.RowDefinitions>
@@ -23,9 +43,7 @@
             <Image Source="..\Resources\logo.png" HorizontalAlignment="Left" Margin="10,0,0,0"/>
             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="65, 0, 0, 5" FontSize="25" Foreground="#FF9C27B0" FontFamily="Sylfaen" FontWeight="Bold">Изменить трату</TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Click="ButtonClose_Click" Width="50" Height="50"  >
-                    <materialDesign:PackIcon Kind="Close" Foreground="#FF9C27B0" Width="40" Height="40" Margin="-15" />
-                </Button>
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Click="ButtonClose_Click" Width="60" Height="60" Style="{StaticResource ButtonClose}" />
             </StackPanel>
         </Grid>
 
