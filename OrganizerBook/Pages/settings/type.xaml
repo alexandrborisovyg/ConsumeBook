@@ -42,9 +42,9 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="14*"/>
-                <RowDefinition Height="1.5*"/>
-                <RowDefinition Height="2.5*"/>
-                <RowDefinition Height="3.5*"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
 
