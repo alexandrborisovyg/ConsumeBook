@@ -51,6 +51,67 @@
             </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
 
+        <Storyboard x:Key="FilterActiveKey" Storyboard.TargetName="ItemKeyWord">
+            <ColorAnimation To="Green"
+                Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" 
+                FillBehavior="HoldEnd" 
+                Duration="0:0:0.3"/>
+        </Storyboard>
+        <Storyboard x:Key="FilterDisableKey" Storyboard.TargetName="ItemKeyWord">
+            <ColorAnimation To="#FF9C27B0"
+                Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" 
+                FillBehavior="HoldEnd" 
+                Duration="0:0:0.3"/>
+        </Storyboard>
+        <Storyboard x:Key="FilterActiveValue" Storyboard.TargetName="ItemValue">
+            <ColorAnimation To="Green"
+                Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" 
+                FillBehavior="HoldEnd" 
+                Duration="0:0:0.3"/>
+        </Storyboard>
+        <Storyboard x:Key="FilterDisableValue" Storyboard.TargetName="ItemValue">
+            <ColorAnimation To="#FF9C27B0"
+                Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" 
+                FillBehavior="HoldEnd" 
+                Duration="0:0:0.3"/>
+        </Storyboard>
+        <Storyboard x:Key="FilterActiveDate" Storyboard.TargetName="ItemDate">
+            <ColorAnimation To="Green"
+                Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" 
+                FillBehavior="HoldEnd" 
+                Duration="0:0:0.3"/>
+        </Storyboard>
+        <Storyboard x:Key="FilterDisableDate" Storyboard.TargetName="ItemDate">
+            <ColorAnimation To="#FF9C27B0"
+                Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" 
+                FillBehavior="HoldEnd" 
+                Duration="0:0:0.3"/>
+        </Storyboard>
+        <Storyboard x:Key="FilterActiveType" Storyboard.TargetName="ItemType">
+            <ColorAnimation To="Green"
+                Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" 
+                FillBehavior="HoldEnd" 
+                Duration="0:0:0.3"/>
+        </Storyboard>
+        <Storyboard x:Key="FilterDisableType" Storyboard.TargetName="ItemType">
+            <ColorAnimation To="#FF9C27B0"
+                Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" 
+                FillBehavior="HoldEnd" 
+                Duration="0:0:0.3"/>
+        </Storyboard>
+        <Storyboard x:Key="FilterActiveUser" Storyboard.TargetName="ItemUser">
+            <ColorAnimation To="Green"
+                Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" 
+                FillBehavior="HoldEnd" 
+                Duration="0:0:0.3"/>
+        </Storyboard>
+        <Storyboard x:Key="FilterDisableUser" Storyboard.TargetName="ItemUser">
+            <ColorAnimation To="#FF9C27B0"
+                Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" 
+                FillBehavior="HoldEnd" 
+                Duration="0:0:0.3"/>
+        </Storyboard>
+
     </Page.Resources>
 
     <Page.Triggers>
@@ -186,7 +247,7 @@
                     <TextBlock HorizontalAlignment="Center" Foreground="#FF9C27B0" FontSize="12" FontFamily="Segoe Marker">сумма</TextBlock>
                     <TextBlock Text="{Binding Sum}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 5, 0, 5" Foreground="#FF9C27B0" FontSize="17" FontFamily="Segoe Marker" FontWeight="Bold"/>
                 </StackPanel>
-                <ListView x:Name="ListViewMenu"  Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView x:Name="ListViewMenu" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListViewItem x:Name="ItemSum" Height="75" Visibility="Collapsed">
                             <Grid>
                                 <materialDesign:PackIcon Kind="CashMultiple" Height="45" Width="45" Margin="7,7,0,0"/>

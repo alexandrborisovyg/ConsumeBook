@@ -55,6 +55,61 @@ namespace OrganizerBook.Pages
             BeginStoryboard(s);
         }
 
+        private void ActiveFilter()
+        {
+            if (textboxKeyWord.Text != "")
+            {
+                Storyboard keyWordActive = (Storyboard)this.TryFindResource("FilterActiveKey");
+                BeginStoryboard(keyWordActive);
+            }
+            else
+            {
+                Storyboard keyWordActive = (Storyboard)this.TryFindResource("FilterDisableKey");
+                BeginStoryboard(keyWordActive);
+            }
+            if (textblockFromValue.Text != "0" || textblockToValue.Text != "0")
+            {
+                Storyboard valueActive = (Storyboard)this.TryFindResource("FilterActiveValue");
+                BeginStoryboard(valueActive);
+            }
+            else
+            {
+                Storyboard valueActive = (Storyboard)this.TryFindResource("FilterDisableValue");
+                BeginStoryboard(valueActive);
+            }
+            if (textblockFromPeriod.Text != "01.01.0001" && textblockToPeriod.Text != "01.01.0001" &&
+                textblockFromPeriod.Text != "1/1/0001" && textblockToPeriod.Text != "1/1/0001")
+            {
+                Storyboard dateActive = (Storyboard)this.TryFindResource("FilterActiveDate");
+                BeginStoryboard(dateActive);
+            }
+            else
+            {
+                Storyboard dateActive = (Storyboard)this.TryFindResource("FilterDisableDate");
+                BeginStoryboard(dateActive);
+            }
+            if (comboboxType.SelectedIndex != 0)
+            {
+                Storyboard typeActive = (Storyboard)this.TryFindResource("FilterActiveType");
+                BeginStoryboard(typeActive);
+            }
+            else
+            {
+                Storyboard typeActive = (Storyboard)this.TryFindResource("FilterDisableType");
+                BeginStoryboard(typeActive);
+            }
+            if (comboboxUser.SelectedIndex != 0)
+            {
+                Storyboard userActive = (Storyboard)this.TryFindResource("FilterActiveUser");
+                BeginStoryboard(userActive);
+            }
+            else
+            {
+                Storyboard userActive = (Storyboard)this.TryFindResource("FilterDisableUser");
+                BeginStoryboard(userActive);
+            }
+        }
+
         public void FillFilters()
         {
             comboboxSubType.Items.Clear();
@@ -122,6 +177,17 @@ namespace OrganizerBook.Pages
             comboboxType.SelectedIndex = 0;
             comboboxSubType.SelectedIndex = 0;
             comboboxUser.SelectedIndex = 0;
+
+            Storyboard keyWordActive = (Storyboard)this.TryFindResource("FilterDisableKey");
+            BeginStoryboard(keyWordActive);
+            Storyboard valueActive = (Storyboard)this.TryFindResource("FilterDisableValue");
+            BeginStoryboard(valueActive);
+            Storyboard dateActive = (Storyboard)this.TryFindResource("FilterDisableDate");
+            BeginStoryboard(dateActive);
+            Storyboard typeActive = (Storyboard)this.TryFindResource("FilterDisableType");
+            BeginStoryboard(typeActive);
+            Storyboard userActive = (Storyboard)this.TryFindResource("FilterDisableUser");
+            BeginStoryboard(userActive);
         }
 
         public void RefreshDataGrid()
@@ -472,6 +538,8 @@ namespace OrganizerBook.Pages
                 var listResult = resultGrid.ToList();
                 this.DataContext = listResult;
                 consumptionGrid.ItemsSource = listResult;
+
+                ActiveFilter();
 
                 BindingMainWindow filtersElements = (BindingMainWindow)this.Resources["filtersElements"];
                 filtersElements.Sum = 0;

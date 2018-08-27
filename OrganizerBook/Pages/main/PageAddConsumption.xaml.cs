@@ -45,7 +45,7 @@ namespace OrganizerBook.Pages
             BeginStoryboard(s);
         }
 
-        private void FillAddWindow()
+        public void FillAddWindow()
         {
             using (ApplicationContext db1 = new ApplicationContext())
             {

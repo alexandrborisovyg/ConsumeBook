@@ -88,6 +88,7 @@ namespace OrganizerBook
             pageFilter.sum = false;
             pageFilter.RefreshDataGrid();
             pageFilter.FillFilters();
+            pageAdd.FillAddWindow();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
