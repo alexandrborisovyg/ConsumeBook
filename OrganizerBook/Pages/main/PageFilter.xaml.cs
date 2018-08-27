@@ -117,8 +117,8 @@ namespace OrganizerBook.Pages
             textboxKeyWord.Text = "";
             textblockFromValue.Text = "0";
             textblockToValue.Text = "0";
-            textblockFromPeriod.Text = "01.01.0001";
-            textblockToPeriod.Text = "01.01.0001";
+            textblockFromPeriod.Text = "1/1/0001";
+            textblockToPeriod.Text = "1/1/0001";
             comboboxType.SelectedIndex = 0;
             comboboxSubType.SelectedIndex = 0;
             comboboxUser.SelectedIndex = 0;
@@ -605,7 +605,7 @@ namespace OrganizerBook.Pages
 
         private void DropFilterDate_Click(object sender, RoutedEventArgs e)
         {
-            textblockFromPeriod.Text = textblockToPeriod.Text = "01.01.0001";
+            textblockFromPeriod.Text = textblockToPeriod.Text = "1/1/0001";
         }
 
         private void DropFilterValue_Click(object sender, RoutedEventArgs e)
@@ -637,7 +637,7 @@ namespace OrganizerBook.Pages
 
         private void textblockFromPeriod_CalendarOpened(object sender, RoutedEventArgs e)
         {
-            if(textblockFromPeriod.Text == "01.01.0001" && textblockToPeriod.Text == "01.01.0001" )
+            if(textblockFromPeriod.Text == "1/1/0001" && textblockToPeriod.Text == "1/1/0001" )
             {
                 textblockFromPeriod.Text = DateTime.Today.ToShortDateString();
                 textblockToPeriod.Text = DateTime.Today.ToShortDateString();
