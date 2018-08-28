@@ -31,6 +31,25 @@
             </Style.Triggers>
         </Style>
         <Style
+        x:Key="ButtonMinimize"
+        TargetType="{x:Type Button}" 
+        BasedOn="{StaticResource MaterialDesignRaisedButton}">
+            <Setter Property="Content">
+                <Setter.Value>
+                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="#FF9C27B0" Width="40" Height="40" Margin="-10,10,-10,-10" ToolTip="Развернуть"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger  Property="IsMouseOver" Value="True">
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            <materialDesign:PackIcon Kind="WindowMinimize" Foreground="#FF7C0A8F" Width="45" Height="45" Margin="-10,10,-10,-10" ToolTip="Развернуть"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style
         x:Key="ButtonSetting"
         TargetType="{x:Type Button}" 
         BasedOn="{StaticResource MaterialDesignRaisedButton}">
@@ -81,6 +100,7 @@
             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="70, 0, 0, 8" FontSize="33" Foreground="#FF9C27B0" FontFamily="Sylfaen" FontWeight="Bold">Consume Book</TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Click="SettingsShow" Height="60" Width="60" Style="{StaticResource ButtonSetting}"/>
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Click="WindovMinimazed" Height="60" Width="60" Style="{StaticResource ButtonMinimize}"/>
                 <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center"  Height="60" Width="60" Click="WindowMaximized"  Style="{StaticResource ButtonOpen}"/>
                 <Button Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center"  Click="Button_Click"  Width="60" Height="60" Style="{StaticResource ButtonClose}"/>
             </StackPanel>

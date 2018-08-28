@@ -114,5 +114,10 @@ namespace OrganizerBook
             }
 
         }
+
+        private void WindovMinimazed(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 }

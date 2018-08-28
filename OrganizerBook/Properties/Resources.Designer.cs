@@ -59,5 +59,15 @@ namespace OrganizerBook.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap acceptfilter_active {
+            get {
+                object obj = ResourceManager.GetObject("acceptfilter_active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
