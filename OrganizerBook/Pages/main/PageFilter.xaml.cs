@@ -804,6 +804,9 @@ namespace OrganizerBook.Pages
             }
 
             is_FilterActivated = false;
+
+            DropFilter_Click(null, null);
+            ActiveFilter();
             RefreshDataGrid();
         }
 
@@ -876,6 +879,9 @@ namespace OrganizerBook.Pages
             }
 
             is_FilterActivated = false;
+
+            DropFilter_Click(null, null);
+            ActiveFilter();
             RefreshDataGrid();
         }
 
@@ -894,6 +900,8 @@ namespace OrganizerBook.Pages
             sum = false;
             is_FilterActivated = false;
 
+            DropFilter_Click(null, null);
+            ActiveFilter();
             RefreshDataGrid();
         }
     }
