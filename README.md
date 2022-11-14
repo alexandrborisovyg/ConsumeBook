@@ -1,5 +1,5 @@
 # ConsumeBook
-<img width="492" alt="image" src="https://user-images.githubusercontent.com/47476498/201545528-2401e505-3ea6-47ac-90e7-4fbe0d4a18d8.png"> <img width="492" alt="image" src="https://user-images.githubusercontent.com/47476498/201545492-6b02f3a1-6513-4b87-b792-945c176326f2.png">
+<img width="400" alt="image" src="https://user-images.githubusercontent.com/47476498/201545528-2401e505-3ea6-47ac-90e7-4fbe0d4a18d8.png"> <img width="400" alt="image" src="https://user-images.githubusercontent.com/47476498/201545492-6b02f3a1-6513-4b87-b792-945c176326f2.png">
 
 The goal of the app is to help people to control their consumes (money consumptions). The app has minimalistic design with only necessary functionalities.
 
